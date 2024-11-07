@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+
+@layer base {
+	body {
+		@apply font-barlow;
+	}
+
+	h1 {
+		@apply text-5xl font-bold;
+	}
+
+	h3 {
+		@apply text-3xl;
+	}
+
+	h4 {
+		@apply text-2xl;
+	}
+}
+
+@layer components {
+	.category {
+		@apply cursor-pointer hover:text-[#e53637] transition-colors;
+	}
+}
