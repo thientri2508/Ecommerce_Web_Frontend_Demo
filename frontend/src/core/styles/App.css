@@ -3,7 +3,7 @@
 
 @layer base {
 	body {
-		@apply font-barlow;
+		@apply font-sans;
 	}
 
 	h1 {
@@ -20,7 +20,43 @@
 }
 
 @layer components {
-	.category {
-		@apply cursor-pointer hover:text-[#e53637] transition-colors;
+	.border-gradient {
+		border: 2px solid transparent; /* Đặt border mặc định là transparent */
+		border-image: linear-gradient(90deg, #D91D2C 0%, #E14B3E 47%, #EEAD08 83%, #FFDA44 99%); /* Cài đặt gradient cho border */
+		border-image-slice: 1;
 	}
+	.custom-prev, .custom-next{
+		position: absolute;
+		z-index: 30;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: white;
+		cursor: pointer;
+		justify-content: center;
+		align-items: center;
+		user-select: none;
+	}
+	.center{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.btn-pagination {
+		@apply w-[40px] h-[40px] border-solid border-2 text-[16px] cursor-pointer text-text bg-bg rounded-md flex justify-center items-center shadow-custom-shadow
+	}
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+.swiper-pagination-bullet {
+	background-color: #fff !important; 
+	width: 12px !important;
+	height: 12px !important;
+	opacity: 1 !important;
+  }
+  
+.swiper-pagination-bullet-active {
+background-color: #D91D2C !important; 
 }

@@ -1,0 +1,13 @@
+.list-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 20px;
+}
+.list-footer > li {
+    cursor: pointer;
+    font-weight: 300;
+}
+.list-footer > li:hover {
+    color: #D91D2C;
+}
