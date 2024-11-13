@@ -35,10 +35,10 @@ const ImageCarousel = () => {
         <SwiperSlide><img src={banner1} className="w-full h-full object-cover rounded-[24px]" /></SwiperSlide>
         <SwiperSlide><img src={banner2} className="w-full h-full object-cover rounded-[24px]" /></SwiperSlide>
       </Swiper>
-      <div id={prevButtonId} className='custom-prev top-[190px] left-[-20px] shadow-custom-shadow border-[2px] flex'>
+      <div id={prevButtonId} className='custom-prev top-[190px] left-0 shadow-custom-shadow border-[2px] flex'>
         <img src={leftIcon}></img>
       </div>
-      <div id={nextButtonId} className='custom-next top-[190px] right-[-35%] shadow-custom-shadow border-[2px] flex'>
+      <div id={nextButtonId} className='custom-next top-[190px] right-0 shadow-custom-shadow border-[2px] flex'>
         <img src={rightIcon}></img>
       </div>
     </div>
