@@ -1,8 +1,7 @@
+import { FC } from 'react';
 import { ROUTES } from './constants/constants.router';
 import Home from '../pages/Home/Home';
 import ProductDetail from '../pages/ProductDetail/ProductDetail';
-import { FC } from 'react';
-
 
 interface RouteType {
     path: string;

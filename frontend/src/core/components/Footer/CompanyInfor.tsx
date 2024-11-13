@@ -6,7 +6,7 @@ import mailIcon from '../../assets/icon/mail-icon.png'
 
 const CompanyInfor = () => {
   return (
-    <ul className='w-[33%] flex flex-col gap-y-3'>
+    <ul className='w-full xl:w-[33%] flex flex-col gap-y-3'>
         <li className='font-semibold text-headingFooter'>Công ty TNHH thương mại điện tử VIMALL</li>
         <li><img src={logo}></img></li>
         <li className='flex gap-2 items-center text-text-footer'>

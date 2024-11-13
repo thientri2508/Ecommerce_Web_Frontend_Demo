@@ -8,7 +8,7 @@ interface HeadingProps {
 const Heading: React.FC<HeadingProps> = ({ text }) => {
   return (
     <div className="flex justify-between">
-        <div className="font-heading text-headingText text-headingColor uppercase">{text}</div>
+        <div className="font-heading text-[26px] md:text-headingText text-headingColor uppercase">{text}</div>
         <Button text="Xem thêm" icon={arrowIcon} iconPosition="right"></Button>
     </div>
   )

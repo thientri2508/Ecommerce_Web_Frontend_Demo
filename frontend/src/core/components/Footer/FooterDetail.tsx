@@ -2,7 +2,7 @@ import './style.css'
 
 const FooterDetail = () => {
   return (
-    <div className='flex gap-x-24'>
+    <div className='w-full justify-between flex gap-24'>
         <div>
             <div className='font-semibold text-headingFooter uppercase'>Về VIMALL</div>
             <ul className='*:text-text *:text-textFooter list-footer'>

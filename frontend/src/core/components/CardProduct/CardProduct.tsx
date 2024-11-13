@@ -9,7 +9,7 @@ interface CardProductProps {
   widthConfig?: 'default' | 'topdeal' | 'carousel';
 }
 
-const CardProduct: React.FC<CardProductProps> = ({ product, widthConfig = 'default' }) => {
+const CardProduct: React.FC<CardProductProps> = ({ product, widthConfig = 'default' }) => { 
 
     const widthClasses =
     widthConfig === 'carousel'

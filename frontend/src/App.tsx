@@ -8,11 +8,11 @@ function App() {
   return (
     <BrowserRouter>
         <Layout>
-            <Routes>
-                {routes.map(({ path, element: Element, index }) => (
-                    <Route key={path} path={path} element={<Element />} index={index} />
-                ))}
-            </Routes>
+          <Routes>
+              {routes.map(({ path, element: Element, index }) => (
+                  <Route key={path} path={path} element={<Element />} index={index} />
+              ))}
+          </Routes>
         </Layout>
     </BrowserRouter>
   )

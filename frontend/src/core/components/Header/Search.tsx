@@ -8,7 +8,7 @@ export const Search = () => {
         placeholder="Hãy nhập từ khoá, sản phẩm cần tìm" 
         className="w-full h-full pl-6 pr-12 rounded-[24px] focus:outline-none bg-white"
         />
-        <div className='absolute top-[10px] right-[18px]'><img src={searchIcon}></img></div>
+        <div className='absolute top-[10px] right-[18px] cursor-pointer'><img src={searchIcon}></img></div>
     </div>
   )
 }

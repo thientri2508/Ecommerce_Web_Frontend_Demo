@@ -90,7 +90,7 @@ const Home = () => {
         {loadedLists.includes(3) && <Banner img={banner7} />}
 
         {loadedLists.includes(4) &&
-          <div className="w-full mt-10 px-[70px] py-12 border-solid border-2 rounded-[30px]">
+          <div className="w-full mt-10 px-[35px] md:px-[70px] pt-6 md:pt-14 pb-[70px] md:pb-14 border-solid border-2 rounded-[30px]">
             <Heading text="sản phẩm yêu thích" />
             <ProductCarousel setLoading={setLoading} />
           </div>}
@@ -109,6 +109,7 @@ const Home = () => {
         {loadedLists.includes(5) && <Banner img={banner9} />}
         {loadedLists.includes(6) && <ProductList text="gợi ý hôm nay" pagination={true} setLoading={setLoading} />}
       </div>
+      
     </main>
   )
 }
