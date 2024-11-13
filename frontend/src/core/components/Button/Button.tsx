@@ -10,7 +10,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ text, icon, onClick, iconPosition = 'left' }) => {
   return (
     <div 
-      className='bg-button-bg px-[15px] md:px-[30px] py-[14px] rounded-[24px] select-none flex items-center justify-center gap-2 md:gap-3 cursor-pointer hover:bg-button-hover transition-all duration-200'
+      className='bg-button-bg px-[15px] md:px-[30px] py-[10px] rounded-[24px] select-none flex items-center justify-center gap-2 md:gap-3 cursor-pointer hover:bg-button-hover transition-all duration-200'
       onClick={onClick}
     >
       {iconPosition === 'left' && icon && (

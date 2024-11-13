@@ -37,6 +37,9 @@
 		align-items: center;
 		user-select: none;
 	}
+	.custom-prev-banner, .custom-next-banner{
+		@apply inline-flex items-center cursor-pointer text-bg select-none absolute z-30 w-[30px] h-[60px] top-[180px] bg-custom-bg-btn opacity-0 group-hover:opacity-100
+	}
 	.center{
 		display: flex;
 		justify-content: center;

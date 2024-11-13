@@ -1,7 +1,7 @@
 // Hàm gọi API lấy danh sách danh mục
-import axios from 'axios';
-import { API_ENDPOINTS } from '../../config/apiConfig';
-import { validateNonEmptyArray } from '../../utils/validation/arrayValidation';
+// import axios from 'axios';
+// import { API_ENDPOINTS } from '../../config/apiConfig';
+// import { validateNonEmptyArray } from '../../utils/validation/arrayValidation';
 import { handleError } from '../../utils/errorHandler';
 import { categoryData } from '../../mockData/categoryData';
 

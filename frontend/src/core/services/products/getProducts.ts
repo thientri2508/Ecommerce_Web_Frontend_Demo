@@ -1,7 +1,7 @@
 // Hàm gọi API lấy danh sách sản phẩm
-import axios from 'axios';
-import queryString from 'query-string';
-import { API_ENDPOINTS } from '../../config/apiConfig';
+// import axios from 'axios';
+// import queryString from 'query-string';
+// import { API_ENDPOINTS } from '../../config/apiConfig';
 import { validateNonEmptyArray } from '../../utils/validation/arrayValidation';
 import { handleError } from '../../utils/errorHandler';
 import { productData } from '../../mockData/productData';
@@ -20,6 +20,7 @@ export const getProducts = async (params?: ProductParams) => {
         // const response = await axios.get(`${API_ENDPOINTS.PRODUCTS}?${query}`);
         // const products = response.data.data.list;
         const products = productData
+        console.log(params)
         validateNonEmptyArray(products, 'sản phẩm')
         return products;
     } catch (error) {

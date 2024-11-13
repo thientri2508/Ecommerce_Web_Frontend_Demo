@@ -63,7 +63,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ filter, setLoading })
           1280: { slidesPerView: 5, slidesPerGroup: 5 },
           1024: { slidesPerView: 4, slidesPerGroup: 4 },
           768: { slidesPerView: 3, slidesPerGroup: 3 },
-          640: { slidesPerView: 2, slidesPerGroup: 2 },
+          640: { slidesPerView: 2, slidesPerGroup: 2},
           300: { slidesPerView: 2, slidesPerGroup: 2 },
         }}
         loop={false}

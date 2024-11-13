@@ -27,6 +27,7 @@ export default {
       },
       backgroundColor: {
         'custom-bg': 'rgba(0,0,0,0.6)',
+        'custom-bg-btn': 'rgba(0,0,0,0.2)',
       },
       screens: {
         'sm+': '700px',

@@ -1,5 +1,5 @@
 import product1 from '../../assets/product/product1.png'
-import plusIcon from '../../assets/icon/plus-icon.png'
+// import plusIcon from '../../assets/icon/plus-icon.png'
 import heartIcon from '../../assets/icon/heart-icon.png'
 import TagVoucher from '../TagVoucher/TagVoucher'
 import { Product } from '../../types/Product'

@@ -7,29 +7,29 @@ const UserActions = () => {
   return (
     <ul className='flex gap-8 *:cursor-pointer'>
         <li>
-            <ul className='flex flex-col items-center gap-y-2'>
-                <li><img src={coinIcon} className='w-[32px] h-[32px]'></img></li>
+            <ul className='flex flex-col items-center gap-y-[5px]'>
+                <li><img src={coinIcon} className='w-[23px] h-[23px]'></img></li>
                 <li>Đổi điểm</li>
             </ul>
         </li>
         <li>
-            <ul className='flex flex-col items-center gap-y-2'>
-                <li><img src={likeIcon} className='w-[32px] h-[32px]'></img></li>
+            <ul className='flex flex-col items-center gap-y-[5px]'>
+                <li><img src={likeIcon} className='w-[23px] h-[23px]'></img></li>
                 <li>Yêu thích</li>
             </ul>
         </li>
         <li>
-            <ul className='flex flex-col items-center gap-y-2'>
-                <li><img src={accountIcon} className='w-[32px] h-[32px]'></img></li>
+            <ul className='flex flex-col items-center gap-y-[5px]'>
+                <li><img src={accountIcon} className='w-[23px] h-[23px]'></img></li>
                 <li>Tài khoản</li>
             </ul>
         </li>
         <li className='relative'>
-            <ul className='flex flex-col items-center gap-y-2'>
-                <li><img src={bagIcon} className='w-[32px] h-[32px]'></img></li>
+            <ul className='flex flex-col items-center gap-y-[5px]'>
+                <li><img src={bagIcon} className='w-[23px] h-[23px]'></img></li>
                 <li>Giỏ hàng</li>
             </ul>
-            <div className='absolute z-10 w-[30px] h-[30px] text-[10px] rounded-[50%] bg-bg-alt2 right-[-8px] top-[-10px] flex items-center justify-center'>
+            <div className='absolute z-10 w-[23px] h-[23px] text-[8px] rounded-[50%] bg-bg-alt2 right-[1px] top-[-8px] flex items-center justify-center'>
                 <span>99+</span>
             </div>
         </li>
