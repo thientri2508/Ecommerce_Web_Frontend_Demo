@@ -30,7 +30,7 @@ const Home = () => {
     const scrollHeight = document.documentElement.scrollHeight;
 
     // Nếu cuộn đến gần cuối trang và chưa đang tải và chưa tải hết tất cả danh sách
-    if (scrollPosition >= scrollHeight - 350 && !allListsLoaded && !loading) {
+    if (scrollPosition >= scrollHeight - 500 && !allListsLoaded && !loading) {
       // Cập nhật trạng thái để tải thêm danh sách
       loadMoreLists();
     }
@@ -90,7 +90,7 @@ const Home = () => {
         {loadedLists.includes(3) && <Banner img={banner7} />}
 
         {loadedLists.includes(4) &&
-          <div className="w-full mt-10 px-[35px] md:px-[70px] pt-6 md:pt-14 pb-[70px] md:pb-14 border-solid border-2 rounded-[30px]">
+          <div className="w-full mt-10 px-[35px] md:px-[70px] pt-6 md:pt-14 pb-[60px] md:pb-14 border-solid border-2 rounded-[30px]">
             <Heading text="sản phẩm yêu thích" />
             <ProductCarousel setLoading={setLoading} />
           </div>}

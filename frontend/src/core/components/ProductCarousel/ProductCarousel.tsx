@@ -74,10 +74,10 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ filter, setLoading })
         ))}
       </Swiper>
 
-      <div ref={btnLeft} id={prevButtonId} className='custom-prev top-[375px] left-[10px] md:top-[165px] md:left-[-45px] shadow-custom-shadow border-[2px] hidden'>
+      <div ref={btnLeft} id={prevButtonId} className='custom-prev top-[360px] left-[10px] md:top-[165px] md:left-[-45px] shadow-custom-shadow border-[2px] hidden'>
         <img src={leftIcon}></img>
       </div>
-      <div ref={btnRight} id={nextButtonId} className='custom-next top-[375px] right-[10px] md:top-[165px] md:right-[-45px] shadow-custom-shadow border-[2px] flex'>
+      <div ref={btnRight} id={nextButtonId} className='custom-next top-[360px] right-[10px] md:top-[165px] md:right-[-45px] shadow-custom-shadow border-[2px] flex'>
         <img src={rightIcon}></img>
       </div>
 

@@ -2,7 +2,7 @@ import mailIcon from '../../assets/icon/mail-icon.png'
 
 const FooterForm = () => {
   return (
-    <div className='mt-16 xl:mt-24 w-[418px]'>
+    <div className='mt-10 md:mt-16 xl:mt-24 w-full md:w-[418px]'>
         <div className='w-full h-[52px] relative'>
             <input type='text' placeholder='Hãy điền email của bạn'
                 className='outline-none w-full h-full border-solid border-2 rounded-[8px] pl-[66px] pr-[100px]'></input>
