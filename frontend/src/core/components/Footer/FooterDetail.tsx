@@ -24,7 +24,7 @@ const FooterDetail = () => {
   };
 
   return (
-    <div className='w-full justify-center flex flex-col md:flex-row gap-10 md:gap-[65px]'>
+    <div className='w-full justify-center flex flex-col md:flex-row gap-2 md:gap-[65px]'>
         <div>
             <div className='hidden md:block font-semibold text-headingFooter uppercase'>Về VIMALL</div>
             <div className="md:hidden flex justify-between items-center font-semibold text-headingFooter uppercase cursor-pointer select-none" onClick={() => toggleSection('about')}>

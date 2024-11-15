@@ -31,6 +31,7 @@ export default {
         'custom-bg-btn': 'rgba(0,0,0,0.2)',
       },
       screens: {
+        'sm-': '500px',
         'sm+': '700px',
         'md+': '950px',
         'lg+': '1200px',

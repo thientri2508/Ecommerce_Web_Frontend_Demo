@@ -9,19 +9,19 @@ const CompanyInfor = () => {
     <ul className='w-full xl:w-[33%] flex flex-col gap-y-3'>
         <li className='font-semibold text-headingFooter'>Công ty TNHH thương mại điện tử VIMALL</li>
         <li><img src={logo}></img></li>
-        <li className='flex gap-2 items-center text-text-footer'>
+        <li className='flex gap-2 items-center text-text-footer text-[11px] md:text-[13px]'>
             <img src={bookIcon}></img>
             <span>Giấy chứng nhận ĐKKD số: 0318682724 Do Sở KHĐT TPHCM cấp ngày 24/09/2024</span>
         </li>
-        <li className='flex gap-2 items-center text-text-footer'>
+        <li className='flex gap-2 items-center text-text-footer text-[11px] md:text-[13px]'>
             <img src={locationIcon}></img>
             <span>Số 63 - 65 Đường Số 10, Khu Đô Thị Sala, Phường An Lợi Đông, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam</span>
         </li>
-        <li className='flex gap-2 items-center text-text-footer'>
+        <li className='flex gap-2 items-center text-text-footer text-[11px] md:text-[13px]'>
             <img src={mailIcon}></img>
             <span>Email: vimallecommerce@gmail.com</span>
         </li>
-        <li className='flex gap-2 items-center text-text-footer'>
+        <li className='flex gap-2 items-center text-text-footer text-[11px] md:text-[13px]'>
             <img src={phoneIcon}></img>
             <span>Tổng đài CSKH: <span className='text-headingFooter text-bg-alt1 font-medium'>0934094167</span></span>
         </li>

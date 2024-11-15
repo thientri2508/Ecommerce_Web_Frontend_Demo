@@ -58,20 +58,20 @@ const Home = () => {
   }, [allListsLoaded, loading]);
 
   return (
-    <main className="w-full bg-bg">
-      <div className="max-w-[1380px] m-auto pt-8">
-      {loadedLists.includes(1) &&
-        <ul className="flex gap-2 px-10">
+    <main className="w-full">
+      <div className="w-full md:max-w-[1380px] m-auto pt-8">
+        {loadedLists.includes(1) &&
+        <ul className="hidden md:flex gap-2 px-10">
           <li><Tag text="Lorem ipsum dolor sit amet" /></li>
           <li><Tag text="Lorem ipsum " /></li>
           <li><Tag text="Lorem ipsum dolor" /></li>
           <li><Tag text="Lorem ipsum dolor sit amet" /></li>
         </ul>}
 
-      {loadedLists.includes(1) &&
-        <div className="flex gap-5 mt-8 h-[425px] px-5 select-none">
+        {loadedLists.includes(1) &&
+        <div className="flex gap-5 mt-[-32px] md:mt-8 h-[200px] md:h-[425px] md:px-5 select-none">
           <ImageCarousel />
-          <div className="flex flex-col justify-between w-[23%]">
+          <div className="hidden lg:flex flex-col justify-between w-[23%]">
             <img src={banner3} className="h-[70%] object-cover rounded-[24px]"></img>
             <img src={banner2} className="h-[25%] object-cover rounded-[24px]"></img>
           </div>
@@ -90,7 +90,7 @@ const Home = () => {
         {loadedLists.includes(3) && <Banner img={banner7} />}
 
         {loadedLists.includes(4) &&
-          <div className="w-full mt-10 px-[35px] md:px-[70px] pt-6 md:pt-14 pb-[60px] md:pb-14 border-solid border-2 rounded-[30px]">
+          <div className="w-full mt-10 px-[10px] sm-:px-[20px] md:px-[60px] pt-4 md:pt-14 pb-[40px] md:pb-14 border-solid border-2 md:rounded-[30px]">
             <Heading text="sản phẩm yêu thích" />
             <ProductCarousel setLoading={setLoading} />
           </div>}

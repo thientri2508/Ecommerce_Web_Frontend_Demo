@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({ text, icon, onClick, iconPosition = 'le
         )
       )}
       
-      <span>{text}</span>
+      <span className='hidden md:block'>{text}</span>
 
       {iconPosition === 'right' && icon && (
         typeof icon === 'string' ? (

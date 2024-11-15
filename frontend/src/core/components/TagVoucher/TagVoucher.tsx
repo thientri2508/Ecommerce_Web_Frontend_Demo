@@ -9,14 +9,14 @@ interface TagVoucherProps {
 const TagVoucher: React.FC<TagVoucherProps> = ({ text, color, textColor }) => {
   return (
     <div
-      className="relative text-small font-light pl-[5px] pr-[12px] py-[1px]"
+      className="relative text-[9px] sm-:text-small font-light pl-[5px] pr-[12px] py-[1px]"
       style={{ 
         backgroundColor: color ? color : '#FF4114',  // Màu nền tùy chọn hoặc mặc định
         color: textColor ? textColor : '#ffffff'  // Màu chữ tùy chọn hoặc mặc định
       }}
     >
         <span>{text}</span>
-        <div className="absolute rotate-[-90deg] top-[5.5px] right-[-5.5px] w-0 h-0 border-l-[9.5px] border-r-[9.5px] border-b-[8px] border-l-transparent border-r-transparent border-b-slate-100"></div>
+        <div className="absolute rotate-[-90deg] top-[4px] right-[-6.5px] sm-:top-[5.5px] sm-:right-[-6px] w-0 h-0 border-l-[9.5px] border-r-[9.5px] border-b-[8px] border-l-transparent border-r-transparent border-b-slate-100"></div>
     </div>
   );
 }

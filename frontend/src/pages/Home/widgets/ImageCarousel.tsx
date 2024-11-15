@@ -17,7 +17,7 @@ import '../../../core/styles/App.css'
 const ImageCarousel = () => {
 
   return (
-    <div className='relative select-none w-[75%] group'>
+    <div className='relative select-none w-full lg:w-[75%] group'>
       <Swiper
         className="h-full"
         modules={[Navigation, Autoplay, Pagination]}
@@ -28,8 +28,8 @@ const ImageCarousel = () => {
         pagination={{ clickable: true }}
         navigation={{ prevEl: '.custom-prev-banner', nextEl: '.custom-next-banner' }}
       >
-        <SwiperSlide><img src={banner1} className="w-full h-full object-cover rounded-[24px]" /></SwiperSlide>
-        <SwiperSlide><img src={banner2} className="w-full h-full object-cover rounded-[24px]" /></SwiperSlide>
+        <SwiperSlide><img src={banner1} className="w-full h-full object-cover md:rounded-[24px]" /></SwiperSlide>
+        <SwiperSlide><img src={banner2} className="w-full h-full object-cover md:rounded-[24px]" /></SwiperSlide>
       </Swiper>
       <div className="custom-prev-banner left-0">
         <IoIosArrowBack size={30} />

@@ -24,9 +24,9 @@ const ProductList: React.FC<ProductListProps> = ({ text, filter, pagination, set
   if (error) return <div>Error: {error instanceof Error ? error.message : 'Unknown error'}</div>;
 
   return (
-    <div className="mt-8 w-full px-7 md:px-10 py-12">
+    <div className="mt-8 w-full px-0 md:px-10 py-0 md:py-12">
       <Heading text={text} />
-      <div className="flex flex-wrap gap-4 mt-10 md:ml-[8px]">
+      <div className="flex flex-wrap gap-1 md:gap-4 mt-10 md:ml-[8px]">
         {data?.map((product) => <CardProduct key={product.id} product={product} />)}
       </div>
 

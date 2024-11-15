@@ -46,10 +46,10 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ filter, setLoading })
   if (error) return <div>Error: {error instanceof Error ? error.message : 'Unknown error'}</div>
   
   return (
-    <div className='relative mt-10 px-0 md:px-5'>
+    <div className='relative mt-5 md:mt-10 px-0 md:px-5'>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={15}
+        spaceBetween={5}
         slidesPerView={5}
         slidesPerGroup={5}
         onSlideChange={handleSlideChange}
@@ -74,10 +74,10 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ filter, setLoading })
         ))}
       </Swiper>
 
-      <div ref={btnLeft} id={prevButtonId} className='custom-prev top-[360px] left-[10px] md:top-[165px] md:left-[-45px] shadow-custom-shadow border-[2px] hidden'>
+      <div ref={btnLeft} id={prevButtonId} className='custom-prev opacity-0 md:opacity-100 top-[290px] left-[10px] md:top-[165px] md:left-[-45px] shadow-custom-shadow border-[2px] hidden'>
         <img src={leftIcon}></img>
       </div>
-      <div ref={btnRight} id={nextButtonId} className='custom-next top-[360px] right-[10px] md:top-[165px] md:right-[-45px] shadow-custom-shadow border-[2px] flex'>
+      <div ref={btnRight} id={nextButtonId} className='custom-next opacity-0 md:opacity-100 top-[290px] right-[10px] md:top-[165px] md:right-[-45px] shadow-custom-shadow border-[2px] flex'>
         <img src={rightIcon}></img>
       </div>
 

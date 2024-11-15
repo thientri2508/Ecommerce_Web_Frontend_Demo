@@ -24,14 +24,14 @@ const TopDeal: React.FC<TopDealProps> = ({ setLoading }) => {
   if (error) return <div>Error: {error instanceof Error ? error.message : 'Unknown error'}</div>
 
   return (
-    <div className="mt-8 w-full px-7 md:px-10 py-12 border-solid border-2 rounded-[30px]">
+    <div className="mt-8 w-full px-0 sm-:px-10 py-6 sm-:py-12 border-solid border-2 md:rounded-[30px]">
         <Heading text="top deal" />
-        <div className="flex flex-col lg+:flex-row justify-center gap-[40px] mt-10">
-            <div className="*:w-[500px] *:h-[365px] flex flex-row lg+:flex-col gap-4">
-                <div><img src={banner1} className="w-full h-full object-cover"></img></div>
-                <div><img src={banner2} className="w-full h-full object-cover"></img></div>
+        <div className="flex flex-col lg+:flex-row justify-center gap-[40px] mt-6 sm-:mt-10">
+            <div className="*:w-[500px] flex flex-row lg+:flex-col gap-4">
+                <div><img src={banner1} className="w-full aspect-square md:h-[365px] object-cover"></img></div>
+                <div><img src={banner2} className="w-full aspect-square md:h-[365px] object-cover"></img></div>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-1 md:gap-4">
               {/* {products?.map((product: Product) => (
               <li key={product.id}><CardProduct product={product} /></li>
               ))} */}
