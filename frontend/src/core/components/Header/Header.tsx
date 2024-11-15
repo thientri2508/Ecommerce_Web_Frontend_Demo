@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className="hidden md:block w-full h-[70px] bg-bg sticky z-50 top-[-1px] border-solid border-b-2 shadow-custom-shadow-header">
       <div className="max-w-[1400px] m-auto h-full flex items-center justify-between px-8">
-          <div><img src={logo}></img></div>
+          <div><img src={logo} className='w-[100px] lg:w-[142px]'></img></div>
           <Button text='Danh mục' icon={isOpen ? xIcon:listIcon} onClick={() => { setIsOpen(!isOpen) }} />
           <Search />
           <UserActions />

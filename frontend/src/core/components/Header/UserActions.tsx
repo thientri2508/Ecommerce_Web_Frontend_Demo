@@ -6,13 +6,13 @@ import accountIcon from '../../assets/icon/account-icon.png'
 const UserActions = () => {
   return (
     <ul className='flex gap-6 *:cursor-pointer *:text-[12px]'>
-        <li>
+        <li className='hidden lg:block'>
             <ul className='flex flex-col items-center gap-y-[5px]'>
                 <li><img src={coinIcon} className='w-[20px] h-[20px]'></img></li>
                 <li>Đổi điểm</li>
             </ul>
         </li>
-        <li>
+        <li className='hidden lg:block'>
             <ul className='flex flex-col items-center gap-y-[5px]'>
                 <li><img src={likeIcon} className='w-[20px] h-[20px]'></img></li>
                 <li>Yêu thích</li>
