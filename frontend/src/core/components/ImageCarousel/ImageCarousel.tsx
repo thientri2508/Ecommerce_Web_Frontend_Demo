@@ -1,5 +1,3 @@
-import banner1 from "../../../core/assets/banner/banner1.png"
-import banner2 from "../../../core/assets/banner/banner4.png"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 import { IoIosArrowBack } from "react-icons/io";
@@ -8,16 +6,16 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import '../../../core/styles/App.css'
+import '../../styles/App.css'
 
-// type ImageCarouselProps = {
-//   images: string[];
-// };
+type ImageCarouselProps = {
+  images?: string[]
+};
 
-const ImageCarousel = () => {
+const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
 
   return (
-    <div className='relative select-none w-full lg:w-[75%] group'>
+    <div className={`relative select-none w-full h-full group`}>
       <Swiper
         className="h-full"
         modules={[Navigation, Autoplay, Pagination]}
@@ -28,8 +26,10 @@ const ImageCarousel = () => {
         pagination={{ clickable: true }}
         navigation={{ prevEl: '.custom-prev-banner', nextEl: '.custom-next-banner' }}
       >
-        <SwiperSlide><img src={banner1} className="w-full h-full object-cover md:rounded-[24px]" /></SwiperSlide>
-        <SwiperSlide><img src={banner2} className="w-full h-full object-cover md:rounded-[24px]" /></SwiperSlide>
+        {
+          images?.map((image, index) =>(
+            <SwiperSlide key={index}><img src={image} className="w-full h-full object-cover md:rounded-[24px]" /></SwiperSlide>))
+        }
       </Swiper>
       <div className="custom-prev-banner left-0">
         <IoIosArrowBack size={30} />

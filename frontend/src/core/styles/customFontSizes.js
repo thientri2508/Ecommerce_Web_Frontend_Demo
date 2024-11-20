@@ -6,7 +6,7 @@ module.exports = {
     headingFooter: '14px',        // Font cho tiêu đề footer
     textFooter: '12px',        // Font cho nội dung footer
     productName: '1.125rem',   // Font cho tên sản phẩm
-    priceText: '20px',      // Font cho giá sản phẩm
+    priceText: '18px',      // Font cho giá sản phẩm
     'priceText-alt': '12px',      // Font cho giá sale
     buttonText: '1rem',        // Font chữ trong button
     productDetail: '1.25rem',  // Font chữ trong trang chi tiết sản phẩm

@@ -25,7 +25,7 @@ const HeaderMoible = () => {
         <div className="w-[75%] h-[35px] relative">
             <input 
             type="search" 
-            placeholder="Hãy nhập từ khoá, sản phẩm cần tìm" 
+            placeholder="Hãy nhập sản phẩm cần tìm..." 
             className={`w-full h-full pl-3 pr-10 focus:outline-none ${isScrolled ? 'bg-gray-100' : 'bg-white'}`}
             />
             <div className='absolute right-2 top-2 cursor-pointer'><FiSearch size={20} /></div>

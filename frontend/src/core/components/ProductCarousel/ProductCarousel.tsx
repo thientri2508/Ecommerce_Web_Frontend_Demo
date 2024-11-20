@@ -10,8 +10,9 @@ import rightIcon from '../../assets/icon/navigate-right.png';
 import CardProduct from '../CardProduct/CardProduct';
 import { Product } from '../../types/Product';
 import { useProducts } from '../../hooks/products/useProducts';
-import LoadingComponent from '../Loading/LoadingComponent';
+import Spinner from '../Loading/Spinner';
 import { generateRandomId } from '../../utils/generateRandomId';
+import ErrorFallback from '../ErrorFallback/ErrorFallback';
 
 interface ProductCarouselProps {
   filter?: string;
@@ -39,11 +40,17 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ filter, setLoading })
     } else {
       if (btnLeft.current) btnLeft.current.style.display = 'none';
     }
+    
+    if (swiper.isEnd) {
+      if (btnRight.current) btnRight.current.style.display = 'none';
+    } else {
+      if (btnRight.current) btnRight.current.style.display = 'flex';
+    }
   };
 
-  if (isLoading) return <LoadingComponent />
+  if (isLoading) return <Spinner />
 
-  if (error) return <div>Error: {error instanceof Error ? error.message : 'Unknown error'}</div>
+  if (error) return <ErrorFallback message={error instanceof Error ? error.message : 'Lỗi từ máy chủ'} />;
   
   return (
     <div className='relative mt-5 md:mt-10 px-0 md:px-5'>
@@ -53,12 +60,6 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ filter, setLoading })
         slidesPerView={5}
         slidesPerGroup={5}
         onSlideChange={handleSlideChange}
-        onReachEnd={() => {
-          if (btnRight.current) btnRight.current.style.display = 'none';
-        }}
-        onFromEdge={() => {
-          if (btnRight.current) btnRight.current.style.display = 'flex';
-        }}
         breakpoints={{
           1280: { slidesPerView: 5, slidesPerGroup: 5 },
           1024: { slidesPerView: 4, slidesPerGroup: 4 },
@@ -74,10 +75,10 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ filter, setLoading })
         ))}
       </Swiper>
 
-      <div ref={btnLeft} id={prevButtonId} className='custom-prev opacity-0 md:opacity-100 top-[290px] left-[10px] md:top-[165px] md:left-[-45px] shadow-custom-shadow border-[2px] hidden'>
+      <div ref={btnLeft} id={prevButtonId} className='custom-prev opacity-0 md:opacity-100 top-[290px] left-[10px] md:top-[40%] md:left-[-45px] shadow-custom-shadow border-[2px] hidden'>
         <img src={leftIcon}></img>
       </div>
-      <div ref={btnRight} id={nextButtonId} className='custom-next opacity-0 md:opacity-100 top-[290px] right-[10px] md:top-[165px] md:right-[-45px] shadow-custom-shadow border-[2px] flex'>
+      <div ref={btnRight} id={nextButtonId} className='custom-next opacity-0 md:opacity-100 top-[290px] right-[10px] md:top-[40%] md:right-[-45px] shadow-custom-shadow border-[2px] flex'>
         <img src={rightIcon}></img>
       </div>
 

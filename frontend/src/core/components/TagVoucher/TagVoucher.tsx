@@ -16,7 +16,7 @@ const TagVoucher: React.FC<TagVoucherProps> = ({ text, color, textColor }) => {
       }}
     >
         <span>{text}</span>
-        <div className="absolute rotate-[-90deg] top-[4px] right-[-6.5px] sm-:top-[5.5px] sm-:right-[-6px] w-0 h-0 border-l-[9.5px] border-r-[9.5px] border-b-[8px] border-l-transparent border-r-transparent border-b-slate-100"></div>
+        <div className="absolute rotate-[-90deg] top-[4px] right-[-6.5px] sm-:top-[5.5px] sm-:right-[-6px] w-0 h-0 border-l-[9.5px] border-r-[9.5px] border-b-[8px] border-l-transparent border-r-transparent border-b-bg"></div>
     </div>
   );
 }

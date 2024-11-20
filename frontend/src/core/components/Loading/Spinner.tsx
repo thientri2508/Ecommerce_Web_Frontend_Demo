@@ -1,6 +1,6 @@
 import './style.css'
 
-const LoadingComponent = () => {
+const Spinner = () => {
   return (
     <div className='w-full center my-12'>
       <div className="loader"></div>
@@ -8,4 +8,4 @@ const LoadingComponent = () => {
   );
 };
 
-export default LoadingComponent
+export default Spinner

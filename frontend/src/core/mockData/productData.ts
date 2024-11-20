@@ -12,7 +12,7 @@ export const productData = [
     {
         id: 3,
         product_name: 'Serum Dưỡng Da Vitamin C Sáng Mịn',
-        market_price: 220000,
+        market_price: 1280000,
     },
     {
         id: 4,
@@ -74,4 +74,9 @@ export const productData = [
         product_name: 'Áo Hoodie Nam Cổ Chữ V',
         market_price: 300000,
     },
+    {
+        id: 16,
+        product_name: 'Serum Trẻ Hóa Da Retinol Ban Đêm',
+        market_price: 350000,
+    }
 ];

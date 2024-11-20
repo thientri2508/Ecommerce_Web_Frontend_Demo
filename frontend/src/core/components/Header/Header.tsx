@@ -4,24 +4,31 @@ import xIcon from '../../assets/icon/x-icon.png'
 import Button from '../Button/Button'
 import UserActions from './UserActions'
 import { Search } from './Search'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SubHeader } from '../SubHeader/SubHeader'
+import { Link, useLocation } from 'react-router-dom'
 
 const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false)
 
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
   return (
     <header className="hidden md:block w-full h-[70px] bg-bg sticky z-50 top-[-1px] border-solid border-b-2 shadow-custom-shadow-header">
       <div className="max-w-[1400px] m-auto h-full flex items-center justify-between px-8">
-          <div><img src={logo} className='w-[100px] lg:w-[142px]'></img></div>
+          <Link to='/'><img src={logo} className='w-[100px] lg:w-[142px]'></img></Link>
           <Button text='Danh mục' icon={isOpen ? xIcon:listIcon} onClick={() => { setIsOpen(!isOpen) }} />
           <Search />
           <UserActions />
       </div>
 
       <div className={`${isOpen ? 'block' : 'hidden'} w-full h-[100dvh] bg-custom-bg`} onClick={() => { setIsOpen(!isOpen) }}>
-        <div className={`${isOpen ? 'h-[450px] overflow-visible' : 'h-0 overflow-hidden'} absolute w-full bg-bg top-[68px] border-b-2 border-t-2`}
+        <div className={`${isOpen ? 'max-h-[450px] overflow-y-auto' : 'h-0 overflow-hidden'} absolute w-full bg-bg top-[68px] border-b-2 border-t-2`}
         onClick={(e) => e.stopPropagation()}> 
           <SubHeader />
         </div>

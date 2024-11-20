@@ -1,6 +1,6 @@
 import Tag from "../../core/components/Tag/Tag"
-import banner2 from "../../core/assets/banner/banner2.png"
-import banner3 from "../../core/assets/banner/banner3.png"
+// import banner2 from "../../core/assets/banner/banner2.png"
+// import banner3 from "../../core/assets/banner/banner3.png"
 import banner4 from "../../core/assets/banner/banner4.png"
 import banner7 from "../../core/assets/banner/banner7.png"
 import banner8 from "../../core/assets/banner/banner8.png"
@@ -11,9 +11,10 @@ import TopDeal from "./widgets/TopDeal"
 import Heading from "./widgets/Heading"
 import CategoryList from "./widgets/CategoryList"
 import FlashSale from "./widgets/FlashSale"
-import Banner from "./widgets/Banner"
+import Banner from "../../core/components/Banner/Banner"
 import { useState, useEffect } from 'react';
-import ImageCarousel from "./widgets/ImageCarousel"
+import banner1 from "../../core/assets/banner/banner1.png"
+import ImageCarousel from "../../core/components/ImageCarousel/ImageCarousel"
 
 const Home = () => {
 
@@ -35,6 +36,8 @@ const Home = () => {
       loadMoreLists();
     }
   };
+
+  const DataImageCarousel = [banner1, banner4]
 
   const loadMoreLists = () => {
     setLoading(true);
@@ -68,13 +71,18 @@ const Home = () => {
           <li><Tag text="Lorem ipsum dolor sit amet" /></li>
         </ul>}
 
-        {loadedLists.includes(1) &&
+        {/* {loadedLists.includes(1) &&
         <div className="flex gap-5 mt-[-32px] md:mt-8 h-[200px] md:h-[425px] md:px-5 select-none">
-          <ImageCarousel />
+          <ImageCarousel images={DataImageCarousel} />
           <div className="hidden lg:flex flex-col justify-between w-[23%]">
             <img src={banner3} className="h-[70%] object-cover rounded-[24px]"></img>
             <img src={banner2} className="h-[25%] object-cover rounded-[24px]"></img>
           </div>
+        </div>} */}
+
+        {loadedLists.includes(1) &&
+        <div className="mt-[-32px] md:mt-8 h-[200px] md:h-[425px] md:px-5 select-none">
+          <ImageCarousel images={DataImageCarousel} />
         </div>}
 
         {loadedLists.includes(1) && <CategoryList /> }
@@ -107,7 +115,7 @@ const Home = () => {
       <div className="max-w-[1380px] m-auto">
         {loadedLists.includes(5) && <ProductList text="có thể bạn sẽ thích" setLoading={setLoading} />}
         {loadedLists.includes(5) && <Banner img={banner9} />}
-        {loadedLists.includes(6) && <ProductList text="gợi ý hôm nay" pagination={true} setLoading={setLoading} />}
+        {loadedLists.includes(6) && <ProductList text="gợi ý hôm nay" setLoading={setLoading} />}
       </div>
       
     </main>

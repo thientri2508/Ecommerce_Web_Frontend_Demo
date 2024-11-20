@@ -1,29 +1,71 @@
-import { ItemCategory } from "./ItemCategory";
+import { RootCategory } from "./RootCategory";
 import ListCategory from "./ListCategory";
-import brand1 from '../../assets/logo/brand1.png';
-import brand2 from '../../assets/logo/brand2.png';
-import brand3 from '../../assets/logo/brand3.png';
-import brand4 from '../../assets/logo/brand4.png';
-import brand5 from '../../assets/logo/brand5.png';
-import brand6 from '../../assets/logo/brand6.png';
-import brand7 from '../../assets/logo/brand7.png';
+import brand1 from "../../assets/logo/brand1.png";
+import brand2 from "../../assets/logo/brand2.png";
+import brand3 from "../../assets/logo/brand3.png";
+import brand4 from "../../assets/logo/brand4.png";
+import brand5 from "../../assets/logo/brand5.png";
+import brand6 from "../../assets/logo/brand6.png";
+import brand7 from "../../assets/logo/brand7.png";
+import { useAllCategories } from "../../hooks/categories/useCategories";
+import LoadingComponent from "../Loading/Spinner";
+import { Category } from "../../types/Category";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../constants/constants.router";
+import ErrorFallback from "../ErrorFallback/ErrorFallback";
 
 const brands = [brand1, brand2, brand3, brand4, brand5, brand6, brand7];
 
-export const SubHeader = () => (
-  <div className="max-w-[1400px] m-auto flex pt-[14px] px-3 gap-24">
-    <ul className="mt-[4px]">
-      {[...Array(6)].map((_, index) => <li key={index}><ItemCategory /></li>)}
-    </ul>
-    <div className="w-[760px] flex flex-wrap gap-20 mt-8">
-      {[...Array(3)].map((_, index) => <ListCategory key={index} />)}
-    </div>
-    <div className="mt-8">
-      <ul className="flex flex-col gap-5 items-center">
-        {brands.map((brand, index) => (
-          <li key={index}><img src={brand} alt={`brand-${index + 1}`} /></li>
+export const SubHeader = () => {
+  const { data: categories, isLoading, error } = useAllCategories();
+  const [pId, setPid] = useState<number>(1);
+
+  if (isLoading) return <LoadingComponent />;
+
+  if (error) return <ErrorFallback message={error instanceof Error ? error.message : 'Lỗi từ máy chủ'} />;
+
+  return (
+    <div className="max-w-[1400px] m-auto flex justify-between py-[14px] px-8 gap-20">
+      <ul className="mt-[4px]">
+        {categories
+          ?.filter(
+            (category: Category) =>
+              category.p_id === 0 && // Lọc danh mục gốc
+              categories.some((subCategory: Category) => subCategory.p_id === category.id) // Chỉ giữ danh mục có chứa danh mục con
+          )
+          ?.map((category: Category) => (
+            <Link to={ROUTES.CATEGORIES} state={{ id: category?.id }} key={category.id}>
+              <li
+                onMouseEnter={() => {
+                  setPid(category.id);
+                }}
+                style={{
+                  backgroundColor: pId === category.id ? "#FFFCE1" : "transparent",
+                  transition: "background-color 0.3s",
+                }}
+              >
+                <RootCategory category={category} />
+              </li>
+            </Link>
         ))}
       </ul>
+
+      <ListCategory
+          categoriesLv2={categories?.filter((category: Category) => pId === category.p_id)}
+          categories={categories}
+          pId={pId}
+        />
+
+      <div className="mt-8">
+        <ul className="flex flex-col gap-5 items-center">
+          {brands.map((brand, index) => (
+            <li key={index}>
+              <img src={brand} alt={`brand-${index + 1}`} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
-  </div>
-);
+  );
+};
