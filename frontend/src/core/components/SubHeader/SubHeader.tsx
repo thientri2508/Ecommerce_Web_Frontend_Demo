@@ -35,7 +35,7 @@ export const SubHeader = () => {
               categories.some((subCategory: Category) => subCategory.p_id === category.id) // Chỉ giữ danh mục có chứa danh mục con
           )
           ?.map((category: Category) => (
-            <Link to={ROUTES.CATEGORIES} state={{ id: category?.id }} key={category.id}>
+            <Link key={category.id} to={`${ROUTES.CATEGORIES}?id=${category?.id}`}>
               <li
                 onMouseEnter={() => {
                   setPid(category.id);

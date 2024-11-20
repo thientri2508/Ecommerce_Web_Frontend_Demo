@@ -1,20 +1,12 @@
-import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import ErrorFallback from "../../../core/components/ErrorFallback/ErrorFallback"
-import { useCategoryById } from "../../../core/hooks/categories/useCategories";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useCategoryById } from "../../../core/hooks/categories/useCategories"
 
 export const Heading = () => {
-  // const searchParams = new URLSearchParams(location.search);
-  // const idCategory = searchParams.get("idCategory");
+  const [searchParams] = useSearchParams();
+  const idCategory = searchParams.get("idCategory");
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const location = useLocation();
-
-  useEffect(() => {
-    setSearchParams(new URLSearchParams(location.search));
-  }, [location.search, setSearchParams]);
-
-  const { data: category, error, isLoading } = useCategoryById(searchParams.get("idCategory")!);
+  const { data: category, error, isLoading } = useCategoryById(idCategory!);
 
   if (error)
     return (

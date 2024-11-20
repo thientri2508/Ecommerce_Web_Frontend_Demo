@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 import { Category } from "../../../core/types/Category";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { ROUTES } from "../../../core/constants/constants.router";
 
 export const DropdownCategory = ({category} : {category: Category}) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -10,20 +11,9 @@ export const DropdownCategory = ({category} : {category: Category}) => {
 
   const subCategories = category.json_cate ? JSON.parse(category.json_cate) : [];
 
-  // const searchParams = new URLSearchParams(location.search);
-  // const idCategory = searchParams.get('idCategory'); 
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  const location = useLocation();
-
-  useEffect(() => {
-    setSearchParams(new URLSearchParams(location.search));
-  }, [location.search, setSearchParams]);
-
-  const handleCategoryClick = (categoryId: string) => {
-    searchParams.set("idCategory", categoryId);
-    setSearchParams(searchParams);
-  };
+  const [searchParams] = useSearchParams();
+  const idCategory = searchParams.get('idCategory'); 
+  const idParent = searchParams.get('idParent'); 
 
   useEffect(() => {
     if (listRef.current) {
@@ -34,7 +24,7 @@ export const DropdownCategory = ({category} : {category: Category}) => {
   return (
     <div className="select-none">
       <div
-        className={`w-full flex justify-between items-center ${category?.id == Number(searchParams.get("idCategory")) ? 'text-bg-alt1' : 'text-text'} py-[12px]`}
+        className={`w-full flex justify-between items-center ${category?.id == Number(idCategory) ? 'text-bg-alt1' : 'text-text'} py-[12px]`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <h4>{category?.position_name} <span className="font-light text-[13px] text-text-muted">(10)</span></h4>
@@ -45,12 +35,14 @@ export const DropdownCategory = ({category} : {category: Category}) => {
         style={{
           maxHeight: isOpen ? maxHeight : "0px",
         }}
-        className="transition-all duration-300 overflow-hidden *:pl-4 *:py-[8px] text-[14px]"
+        className="transition-all duration-300 overflow-hidden text-[14px]"
       >
         {subCategories?.map((subCategory: Category) => (
-          <li key={subCategory?.id} className={`hover:text-bg-alt1 ${subCategory?.id == Number(searchParams.get("idCategory")) ? 'text-bg-alt1' : 'text-text'}`} onClick={() => handleCategoryClick(`${subCategory?.id}`)}>
-            {subCategory?.position_name}
-          </li>
+          <Link to={`${ROUTES.PRODUCTS}?idParent=${idParent}&idCategory=${subCategory?.id}`} key={subCategory?.id}>
+            <li className={`hover:text-bg-alt1 pl-4 py-[8px] ${subCategory?.id == Number(idCategory) ? 'text-bg-alt1' : 'text-text'}`}>
+              {subCategory?.position_name}
+            </li>
+          </Link>
         ))}
       </ul>
     </div>

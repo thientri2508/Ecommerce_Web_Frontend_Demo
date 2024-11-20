@@ -21,7 +21,6 @@ const Product = () => {
   return (
     <main className="w-full bg-[#f5f5f5] pb-10">
 
-      {/* Modal */}
       <Modal isOpen={isModalOpen} closeModal={closeModal} />
       
       <div className="w-full md:max-w-[1340px] m-auto pt-8">
