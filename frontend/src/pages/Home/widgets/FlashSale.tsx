@@ -1,6 +1,6 @@
-import arrowIcon from "../../../core/assets/icon/rightArrow-icon.png"
 import Button from "../../../core/components/Button/Button"
 import ProductCarousel from "../../../core/components/ProductCarousel/ProductCarousel"
+import { FaArrowRight } from "react-icons/fa6";
 
 const FlashSale = () => {
 
@@ -17,7 +17,7 @@ const FlashSale = () => {
                 <div className="bg-bg rounded-[4px] px-[6px] py-[4px] md:px-[10px] md:py-[8px] text-[14px] md:text-category font-bold text-timeColor">07</div>
             </div>
             </div>
-            <Button text="Xem thêm" icon={arrowIcon} iconPosition="right"></Button>
+            <Button text="Xem thêm" icon={<FaArrowRight size={20} />} iconPosition="right" colorConfig="white"></Button>
         </div>
 
         <ProductCarousel />

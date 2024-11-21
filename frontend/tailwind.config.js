@@ -48,4 +48,16 @@ export default {
       },
     },
   },
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.preserve-3d': {
+          'transform-style': 'preserve-3d',
+        },
+        '.perspective-1000': {
+          perspective: '1000px',
+        },
+      });
+    },
+  ],
 }

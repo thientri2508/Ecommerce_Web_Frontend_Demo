@@ -11,8 +11,8 @@ module.exports = {
     'text-footer': '#6B7280',       // Màu chữ footer
     'text-hover': '#3498db',     // Màu văn bản khi hover
     button: {
-        bg: '#FFE93F',             // Background nút
-        text: '#212121',           // Văn bản trên nút
+        bg: '#D91D2C',             // Background nút
+        text: '#FFF',           // Văn bản trên nút
         hover: '#FFFCE1',          // Background khi hover
     },
     headingColor: '#DA1E2D',          // Màu tiêu đề

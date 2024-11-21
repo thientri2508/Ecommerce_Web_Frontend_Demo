@@ -9,24 +9,29 @@ interface RouteType {
     path: string;
     element: FC;
     index?: boolean;
-}
-
+    isPrivate?: boolean;
+  }
+  
 export const routes: RouteType[] = [
     {
         path: ROUTES.HOME,
         element: Home,
         index: true,
+        isPrivate: false,
     },
     {
         path: ROUTES.PRODUCTS,
         element: Product,
+        isPrivate: false,
     },
     {
         path: ROUTES.PRODUCT_DETAIL,
         element: ProductDetail,
+        isPrivate: false,
     },
     {
         path: ROUTES.CATEGORIES,
         element: Category,
+        isPrivate: false,
     },
 ];

@@ -26,7 +26,7 @@ export const SubHeader = () => {
   if (error) return <ErrorFallback message={error instanceof Error ? error.message : 'Lỗi từ máy chủ'} />;
 
   return (
-    <div className="max-w-[1400px] m-auto flex justify-between py-[14px] px-8 gap-20">
+    <div className="max-w-[1400px] m-auto flex justify-between py-[14px] pl-8 pr-12 gap-[70px]">
       <ul className="mt-[4px]">
         {categories
           ?.filter(

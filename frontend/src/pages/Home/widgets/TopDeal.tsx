@@ -5,9 +5,9 @@ import CardProduct from "../../../core/components/CardProduct/CardProduct"
 import Spinner from "../../../core/components/Loading/Spinner"
 import { useProducts } from "../../../core/hooks/products/useProducts"
 import { Product } from "../../../core/types/Product"
-import arrowIcon from "../../../core/assets/icon/rightArrow-icon.png"
 import Button from "../../../core/components/Button/Button"
 import ErrorFallback from "../../../core/components/ErrorFallback/ErrorFallback"
+import { FaArrowRight } from "react-icons/fa6";
 
 interface TopDealProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -42,7 +42,7 @@ const TopDeal: React.FC<TopDealProps> = ({ setLoading }) => {
               ))}
             </div>
         </div>
-        <div className="center mt-10"><Button text="Xem thêm" icon={arrowIcon} iconPosition="right" /></div>
+        <div className="center mt-10"><Button text="Xem thêm" icon={<FaArrowRight size={20} />} iconPosition="right" colorConfig="stroke" /></div>
     </div>
   )
 }

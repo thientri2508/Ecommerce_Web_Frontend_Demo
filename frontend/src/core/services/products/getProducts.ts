@@ -3,7 +3,7 @@
 // import queryString from 'query-string';
 // import { API_ENDPOINTS } from '../../config/apiConfig';
 import { validateNonEmptyArray } from '../../utils/validation/arrayValidation';
-import { handleError } from '../../utils/errorHandler';
+import { handleAPIError } from '../../config/handleAPIError';
 import { productData } from '../../mockData/productData';
 
 // Định nghĩa kiểu dữ liệu cho tham số lọc
@@ -14,17 +14,16 @@ export interface ProductParams {
 }
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 export const getProducts = async (params?: ProductParams) => {
-    try {
-        await delay(1000); 
-        // const query = params ? queryString.stringify(params) : '';
-        // const response = await axios.get(`${API_ENDPOINTS.PRODUCTS}?${query}`);
-        // const products = response.data.data.list;
-        const products = productData
-        console.log(params)
-        validateNonEmptyArray(products, 'sản phẩm')
-        return products;
-    } catch (error) {
-        handleError(error)
-      }
+  try {
+      await delay(1000); 
+      // const query = params ? queryString.stringify(params) : '';
+      // const response = await axios.get(`${API_ENDPOINTS.PRODUCTS}?${query}`);
+      // const products = response.data.data.list;
+      const products = productData
+      validateNonEmptyArray(products, 'sản phẩm')
+      return products;
+  } catch (error) {
+    throw new Error(handleAPIError(error))
+  }
 };
 

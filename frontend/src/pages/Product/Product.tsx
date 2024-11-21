@@ -5,18 +5,28 @@ import Filter from "./widgets/Filter";
 import Breadcrumb from "./widgets/Breadcrumb";
 import ProductList from "./widgets/ProductList";
 import ImageCarousel from "../../core/components/ImageCarousel/ImageCarousel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./widgets/Model";
 import { Heading } from "./widgets/Heading";
+import { useLocation } from "react-router-dom";
 
 const Product = () => {
 
   const DataImageCarousel = [banner10, banner11]
   const [filterPrice, setFilterPrice] = useState<number>(0);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const location = useLocation();
+
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, [location]);
 
   return (
     <main className="w-full bg-[#f5f5f5] pb-10">
@@ -41,7 +51,7 @@ const Product = () => {
             </div>
 
             <div className="bg-bg w-full rounded-[10px] mt-4 pt-4 pb-10">
-              <ProductList />
+              <ProductList filterPrice={filterPrice} />
             </div>
           </div>
         </div>

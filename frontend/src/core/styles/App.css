@@ -48,6 +48,13 @@
 	.btn-pagination {
 		@apply w-[40px] h-[40px] border-solid border-2 text-[16px] cursor-pointer text-text bg-bg rounded-md flex justify-center items-center shadow-custom-shadow
 	}
+	.custom-scrollbar::-webkit-scrollbar {
+		width: 8px;
+	}
+	.custom-scrollbar::-webkit-scrollbar-thumb {
+		background: gray;
+		border-radius: 100rem;
+	}
 }
 
 input[type="search"]::-webkit-search-cancel-button {

@@ -1,6 +1,7 @@
-import React from "react";
-import { BsDashLg } from "react-icons/bs";
+import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { Input, Slider, Space } from '@arco-design/web-react';
+import { BsDashLg } from "react-icons/bs";
 
 type ModalProps = {
   isOpen: boolean;
@@ -8,17 +9,22 @@ type ModalProps = {
 };
 
 const Modal: React.FC<ModalProps> = ({ isOpen, closeModal }) => {
+
+  const [value, setValue] = useState<[number, number]>([0, 10000000]);
+
+  const handleSliderChange = (newValue: number | number[]) => {
+    setValue(newValue as [number, number]);
+  };
+
+  const formatVND = (amount: number) => {
+    return `${amount.toLocaleString('vi-VN')} ₫`
+  };
+
   if (!isOpen) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-50 bg-gray-600 bg-opacity-50 flex justify-center items-center"
-      onClick={closeModal}
-    >
-      <div
-        className="bg-white rounded-xl w-[40%] relative"
-        onClick={(e) => e.stopPropagation()} 
-      >
+    <div className="fixed inset-0 z-50 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+      <div className="bg-white rounded-xl w-[40%] relative">
         <h2 className="text-xl font-bold w-full text-center border-solid border-b-2 py-[17px]">Bộ Lọc Sản Phẩm</h2>
         <div className="absolute right-8 top-4 cursor-pointer" onClick={closeModal}><IoMdClose size={30} /></div>
         <div className="px-10 py-4">
@@ -33,21 +39,32 @@ const Modal: React.FC<ModalProps> = ({ isOpen, closeModal }) => {
             </div>
             
             <div className="mt-5 border-solid border-b-[2px] pb-6">
-                <div className="flex justify-between">
-                    <h3>Khoảng giá</h3>
-                    <div className="text-bg-alt1 cursor-pointer">Xóa</div>
+              <h3>Khoảng giá</h3>
+              <Space style={{ marginTop: '30px' }} size={60} direction="vertical">
+                <Slider
+                  value={value}
+                  range
+                  min={0} 
+                  max={10000000} 
+                  step={100000}
+                  onChange={handleSliderChange}
+                  style={{ width: 525 }}
+                />
+              
+                <div className="w-full flex justify-center gap-4 items-center mt-[-35px]">
+                  <Input
+                    value={formatVND(value[0])}
+                    readOnly
+                    style={{ width: 150, textAlign: 'center' }}
+                  />
+                  <BsDashLg />
+                  <Input
+                    value={formatVND(value[1])}
+                    readOnly
+                    style={{ width: 150, textAlign: 'center' }}
+                  />
                 </div>
-                <div className="mt-5 flex justify-between items-center">
-                    <div className="w-[48%] relative">
-                        <input type="text" placeholder="Từ" className="w-full outline-none text-priceText border-solid border-[2px] rounded-lg py-[10px] pl-4 pr-16" />
-                        <div className="absolute top-0 right-0 h-full w-[40px] center"><span className="w-full h-[65%] text-[18px] border-solid border-l-[2px] center">đ</span></div>
-                    </div>
-                    <div><BsDashLg /></div>
-                    <div className="w-[48%] relative">
-                        <input type="text" placeholder="Đến" className="w-full outline-none text-priceText border-solid border-[2px] rounded-lg py-[10px] pl-4 pr-16" />
-                        <div className="absolute top-0 right-0 h-full w-[40px] center"><span className="w-full h-[65%] text-[18px] border-solid border-l-[2px] center">đ</span></div>
-                    </div>
-                </div>
+              </Space>
             </div>
 
             <div className="mt-5">

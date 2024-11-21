@@ -3,8 +3,8 @@ import { useProducts } from "../../hooks/products/useProducts";
 import { useEffect } from "react";
 import ProductListLoading from "./ProductListLoading";
 import Button from "../Button/Button";
-import arrowIcon from "../../assets/icon/rightArrow-icon.png"
 import ErrorFallback from "../ErrorFallback/ErrorFallback";
+import { FaArrowRight } from "react-icons/fa6";
 
 interface ProductListProps {
     text: string;
@@ -28,7 +28,7 @@ const ProductList: React.FC<ProductListProps> = ({ text, filter, setLoading }) =
       <div className="flex flex-wrap gap-1 md:gap-4 mt-10 md:ml-[8px]">
         {data?.map((product) => <CardProduct key={product.id} product={product} />)}
       </div>
-      <div className="center mt-10"><Button text="Xem thêm" icon={arrowIcon} iconPosition="right" /></div>
+      <div className="center mt-10"><Button text="Xem thêm" icon={<FaArrowRight size={20} />} iconPosition="right" colorConfig="stroke" /></div>
     </div>
   );
 };
