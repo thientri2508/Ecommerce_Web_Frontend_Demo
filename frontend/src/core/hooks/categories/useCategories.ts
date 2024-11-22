@@ -4,7 +4,8 @@ import {
   getCategoriesByLevel, 
   getCategoriesChildren, 
   getDetailCategory, 
-  getCategoryById 
+  getCategoryById,
+  getParentCategories
 } from '../../services/categories/getCategories';
 
 // Hook lấy danh sách tát cả danh mục
@@ -40,4 +41,11 @@ export const useCategoryById = (id: string) =>
   useQuery({
     queryKey: ['CategoryById', id],
     queryFn: () => getCategoryById(id),
+});
+
+// Hook lấy các danh mục cha của 1 danh mục con cụ thể
+export const useParentCategories = (id: string) => 
+  useQuery({
+    queryKey: ['ParentCategories', id],
+    queryFn: () => getParentCategories(id),
 });

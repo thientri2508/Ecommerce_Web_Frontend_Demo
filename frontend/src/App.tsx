@@ -1,5 +1,4 @@
 import './core/styles/App.css'
-import '@arco-design/web-react/dist/css/arco.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Layout from './core/components/Layout/Layout';
 import { routes } from './core/routes';

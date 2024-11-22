@@ -50,6 +50,9 @@ export const getCategoryById = async (id: string) => {
     }
     const response = await axios.post(`${API_ENDPOINTS.CATEGORIES}/get_category_product`, { "category_id" : id })
     const category = response.data.data
+    if(!category) {
+      throw new Error("Danh mục không tồn tại");
+    }
     return category
   } catch (error) {
     throw new Error(handleAPIError(error))
@@ -64,7 +67,21 @@ export const getDetailCategory = async (id: string) => {
     }
     const response = await axios.get(`${API_ENDPOINTS.CATEGORIES}/get_detail_category_page?level_category=2&p_id=${id}`)
     const categories = response.data.data.list
-    console.log(categories)
+    validateNonEmptyArray(categories, 'danh mục') 
+    return categories
+  } catch (error) {
+    throw new Error(handleAPIError(error))
+  }
+};
+
+// Hàm lấy các danh mục cha của 1 danh mục con cụ thể
+export const getParentCategories = async (id: string) => {
+  try {
+    if (!id) {
+      throw new Error("");
+    }
+    const response = await axios.get(`${API_ENDPOINTS.CATEGORIES}/read_breadcumb?id=${id}`)
+    const categories = response.data.data.list
     validateNonEmptyArray(categories, 'danh mục') 
     return categories
   } catch (error) {

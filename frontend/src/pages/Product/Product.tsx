@@ -6,7 +6,7 @@ import Breadcrumb from "./widgets/Breadcrumb";
 import ProductList from "./widgets/ProductList";
 import ImageCarousel from "../../core/components/ImageCarousel/ImageCarousel";
 import { useEffect, useState } from "react";
-import Modal from "./widgets/Model";
+import Modal from "./widgets/Model/Model";
 import { Heading } from "./widgets/Heading";
 import { useLocation } from "react-router-dom";
 
