@@ -3,11 +3,12 @@ import banner1 from "../../../core/assets/banner/banner5.png"
 import banner2 from "../../../core/assets/banner/banner6.png"
 import CardProduct from "../../../core/components/CardProduct/CardProduct"
 import Spinner from "../../../core/components/Loading/Spinner"
-import { useProducts } from "../../../core/hooks/products/useProducts"
+import { useProductsByStatus } from "../../../core/hooks/products/useProducts"
 import { Product } from "../../../core/types/Product"
 import Button from "../../../core/components/Button/Button"
 import ErrorFallback from "../../../core/components/ErrorFallback/ErrorFallback"
 import { FaArrowRight } from "react-icons/fa6";
+import { top_deal_product } from "../../../core/constants/constants.statusProduct"
 
 interface TopDealProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,7 +16,11 @@ interface TopDealProps {
 
 const TopDeal: React.FC<TopDealProps> = ({ setLoading }) => {
 
-  const { data: products, isLoading, error } = useProducts({page: 1, page_size: 6})
+  const { data: products, isLoading, error } = useProductsByStatus({
+        status_product: top_deal_product,
+        page:  1,
+        page_size: 6,
+      });
 
   useEffect(() => {
     if (!isLoading && !error) setLoading?.(false);
@@ -33,11 +38,11 @@ const TopDeal: React.FC<TopDealProps> = ({ setLoading }) => {
                 <div><img src={banner1} className="w-full aspect-square md:h-[365px] object-cover"></img></div>
                 <div><img src={banner2} className="w-full aspect-square md:h-[365px] object-cover"></img></div>
             </div>
-            <div className="flex flex-wrap gap-1 md:gap-4">
+            <div className="w-full lg+:w-[60%] flex flex-wrap gap-1 md:gap-4">
               {/* {products?.map((product: Product) => (
               <li key={product.id}><CardProduct product={product} /></li>
               ))} */}
-              {products?.slice(0, 6).map((product: Product) => (
+              {products?.map((product: Product) => (
                 <CardProduct key={product.id} product={product} widthConfig="topdeal" />
               ))}
             </div>

@@ -9,19 +9,19 @@ import leftIcon from '../../assets/icon/navigate-left.png';
 import rightIcon from '../../assets/icon/navigate-right.png';
 import CardProduct from '../CardProduct/CardProduct';
 import { Product } from '../../types/Product';
-import { useProducts } from '../../hooks/products/useProducts';
+import { useProductsByStatus } from '../../hooks/products/useProducts';
 import Spinner from '../Loading/Spinner';
 import { generateRandomId } from '../../utils/generateRandomId';
 import ErrorFallback from '../ErrorFallback/ErrorFallback';
 
 interface ProductCarouselProps {
-  filter?: string;
+  status_product?: string;
   setLoading?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ProductCarousel: React.FC<ProductCarouselProps> = ({ filter, setLoading }) => {
+const ProductCarousel: React.FC<ProductCarouselProps> = ({ status_product, setLoading }) => {
 
-  const { data: products, isLoading, error } = useProducts({status_product: filter})
+  const { data: products, isLoading, error } = useProductsByStatus({status_product})
 
   const btnLeft = useRef<HTMLDivElement | null>(null);
   const btnRight = useRef<HTMLDivElement | null>(null);

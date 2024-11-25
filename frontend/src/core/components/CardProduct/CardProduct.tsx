@@ -15,10 +15,10 @@ const CardProduct: React.FC<CardProductProps> = ({ product, widthConfig = 'defau
     widthConfig === 'carousel'
       ? 'w-full h-[260px] sm-:h-[330px]'
       : widthConfig === 'topdeal'
-      ? 'w-[calc(50%-4px)] md:w-[calc(33%-16px)] lg+:w-[calc(50%-16px)] xl:w-[calc(33%-16px)]'
+      ? 'w-[calc(50%-4px)] md:w-[calc(33.33%-12px)] lg+:w-[calc(50%-10px)] xl:w-[calc(33.33%-12px)]'
       : widthConfig === 'productlist'
       ? 'w-[calc(25%-16px)]'
-      : 'w-[calc(50%-4px)] md:w-[calc(33%-16px)] lg:w-[calc(25%-16px)] xl:w-[calc(20%-16px)]';
+      : 'w-[calc(50%-4px)] md:w-[calc(33%-10px)] lg:w-[calc(25%-12px)] xl:w-[calc(20%-14px)]';
 
   return (
     <div className={`${widthClasses} bg-bg border-solid border-[0.7px] border-[#DEDEDE] overflow-hidden rounded-[16px] p-4 flex flex-col gap-[10px] relative group cursor-pointer`}>

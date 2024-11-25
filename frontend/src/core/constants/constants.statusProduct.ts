@@ -1,0 +1,7 @@
+export const best_selling_product = 'hot'
+export const favorite_product = 'favorite'
+export const new_product = 'new'
+export const suggested_product = 'suggest'
+export const sale_product = 'sale'
+export const flash_sale_product = 'flash sale'
+export const top_deal_product = 'top deal'

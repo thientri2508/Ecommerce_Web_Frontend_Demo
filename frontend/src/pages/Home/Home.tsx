@@ -15,6 +15,7 @@ import Banner from "../../core/components/Banner/Banner"
 import { useState, useEffect } from 'react';
 import banner1 from "../../core/assets/banner/banner1.png"
 import ImageCarousel from "../../core/components/ImageCarousel/ImageCarousel"
+import { best_selling_product, favorite_product, new_product, suggested_product } from "../../core/constants/constants.statusProduct"
 
 const Home = () => {
 
@@ -91,7 +92,7 @@ const Home = () => {
 
         {loadedLists.includes(2) && <Banner img={banner4} />}
 
-        {loadedLists.includes(2) && <ProductList text="sản phẩm bán chạy" />}
+        {loadedLists.includes(2) && <ProductList text="sản phẩm bán chạy" filter={{status_product: best_selling_product}} />}
 
         {loadedLists.includes(3) && <TopDeal setLoading={setLoading} />}
 
@@ -100,7 +101,7 @@ const Home = () => {
         {loadedLists.includes(4) &&
           <div className="w-full mt-10 px-[10px] sm-:px-[20px] md:px-[60px] pt-4 md:pt-14 pb-[40px] md:pb-14 border-solid border-2 md:rounded-[30px]">
             <Heading text="sản phẩm yêu thích" />
-            <ProductCarousel setLoading={setLoading} />
+            <ProductCarousel setLoading={setLoading} status_product={favorite_product} />
           </div>}
       </div>
 
@@ -113,9 +114,9 @@ const Home = () => {
       </div>}
 
       <div className="max-w-[1380px] m-auto">
-        {loadedLists.includes(5) && <ProductList text="có thể bạn sẽ thích" setLoading={setLoading} />}
+        {loadedLists.includes(5) && <ProductList text="sản phẩm mới" setLoading={setLoading} filter={{status_product: new_product}} />}
         {loadedLists.includes(5) && <Banner img={banner9} />}
-        {loadedLists.includes(6) && <ProductList text="gợi ý hôm nay" setLoading={setLoading} />}
+        {loadedLists.includes(6) && <ProductList text="gợi ý hôm nay" setLoading={setLoading} filter={{status_product: suggested_product}} />}
       </div>
       
     </main>

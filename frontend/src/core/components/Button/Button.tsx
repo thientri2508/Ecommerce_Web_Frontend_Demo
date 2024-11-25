@@ -15,11 +15,11 @@ const Button: React.FC<ButtonProps> = ({ text, icon, onClick, iconPosition = 'le
       ? 'bg-[#FFF] text-button-bg border-solid border-2 border-button-bg'
       : colorConfig === 'white'
       ? 'bg-[#FFF] text-button-bg'
-      : 'bg-button-bg text-button-text';
+      : 'bg-button-bg text-button-text hover:bg-button-hover';
 
   return (
     <div 
-      className={` ${colorClasses} px-[15px] lg:px-[30px] py-[10px] rounded-[24px] select-none flex items-center justify-center gap-2 md:gap-3 cursor-pointer transition-all duration-200`}
+      className={` ${colorClasses} px-[15px] lg:px-[30px] py-[10px] rounded-[24px] select-none flex items-center justify-center gap-2 md:gap-3 cursor-pointer transition-all duration-300`}
       onClick={onClick}
     >
       {iconPosition === 'left' && icon && (

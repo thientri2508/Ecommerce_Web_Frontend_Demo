@@ -122,8 +122,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, closeModal }) => {
             </div>
 
             <div className="mt-10 flex justify-between text-[16px] *:cursor-pointer *:select-none">
-              <div className="px-8 py-3 border-solid border-2 rounded-xl text-[#777]" onClick={handleReset}>Xóa tất cả</div>
-              <div className="px-8 py-3 border-solid border-2 rounded-xl bg-bg-alt1 text-[#FFF]">Xem tất cả</div>
+              <div className="px-8 py-3 border-solid border-2 rounded-xl hover:border-bg-alt1 transition-all duration-300" onClick={handleReset}>Xóa tất cả</div>
+              <div className="px-8 py-3 border-solid border-2 rounded-xl bg-bg-alt1 text-[#FFF] hover:bg-[#BC101E] transition-all duration-300">Xem tất cả</div>
             </div>
         </div>
       </div>

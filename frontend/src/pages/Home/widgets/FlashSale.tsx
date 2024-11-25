@@ -1,6 +1,7 @@
 import Button from "../../../core/components/Button/Button"
 import ProductCarousel from "../../../core/components/ProductCarousel/ProductCarousel"
 import { FaArrowRight } from "react-icons/fa6";
+import { flash_sale_product } from "../../../core/constants/constants.statusProduct";
 
 const FlashSale = () => {
 
@@ -20,7 +21,7 @@ const FlashSale = () => {
             <Button text="Xem thêm" icon={<FaArrowRight size={20} />} iconPosition="right" colorConfig="white"></Button>
         </div>
 
-        <ProductCarousel />
+        <ProductCarousel status_product={flash_sale_product} />
     </div>
   )
 }

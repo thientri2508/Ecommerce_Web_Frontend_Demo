@@ -13,7 +13,7 @@ module.exports = {
     button: {
         bg: '#D91D2C',             // Background nút
         text: '#FFF',           // Văn bản trên nút
-        hover: '#FFFCE1',          // Background khi hover
+        hover: '#BC101E',          // Background khi hover
     },
     headingColor: '#DA1E2D',          // Màu tiêu đề
     'headingColor-alt': '#ffffff',          // Màu tiêu đề phụ
