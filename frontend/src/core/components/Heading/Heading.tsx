@@ -1,4 +1,4 @@
-import Button from "../../../core/components/Button/Button"
+import Button from "../Button/Button"
 import { FaArrowRight } from "react-icons/fa6"
 
 interface HeadingProps {

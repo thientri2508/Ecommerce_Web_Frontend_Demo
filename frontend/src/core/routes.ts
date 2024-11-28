@@ -4,6 +4,7 @@ import Home from '../pages/Home/Home';
 import ProductDetail from '../pages/ProductDetail/ProductDetail';
 import Category from '../pages/Category/Category';
 import Product from '../pages/Product/Product';
+import Store from '../pages/Store/Store';
 
 interface RouteType {
     path: string;
@@ -32,6 +33,11 @@ export const routes: RouteType[] = [
     {
         path: ROUTES.CATEGORIES,
         element: Category,
+        isPrivate: false,
+    },
+    {
+        path: ROUTES.STORE,
+        element: Store,
         isPrivate: false,
     },
 ];

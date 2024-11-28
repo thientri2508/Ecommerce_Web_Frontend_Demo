@@ -6,8 +6,8 @@ import Breadcrumb from "./widgets/Breadcrumb";
 import ProductList from "./widgets/ProductList";
 import ImageCarousel from "../../core/components/ImageCarousel/ImageCarousel";
 import { useEffect, useState } from "react";
-import Modal from "./widgets/Model/Model";
-import { Heading } from "./widgets/Heading";
+import Modal from "./widgets/Modal/Modal";
+import { HeadingCategory } from "./widgets/HeadingCategory";
 import { useLocation } from "react-router-dom";
 
 const Product = () => {
@@ -46,7 +46,7 @@ const Product = () => {
           </div>
           <div className="w-[75%] rounded-[16px]">
             <div className="flex justify-between">
-              <Heading />
+              <HeadingCategory />
               <Filter filterPrice={filterPrice} setFilterPrice={setFilterPrice} openModal={openModal} />
             </div>
 

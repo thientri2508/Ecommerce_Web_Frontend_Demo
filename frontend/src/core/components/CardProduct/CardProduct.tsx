@@ -1,15 +1,21 @@
-import product1 from '../../assets/product/product1.png'
+import product1 from '../../assets/product/product2.png'
 // import plusIcon from '../../assets/icon/plus-icon.png'
 import heartIcon from '../../assets/icon/heart-icon.png'
 import TagVoucher from '../TagVoucher/TagVoucher'
 import { Product } from '../../types/Product'
+import { useNavigate } from 'react-router-dom';
 
 interface CardProductProps {
   product: Product;
-  widthConfig?: 'default' | 'topdeal' | 'carousel' | 'productlist';
+  widthConfig?: 'default' | 'topdeal' | 'carousel' | 'productlist' | 'productdetail';
 }
  
 const CardProduct: React.FC<CardProductProps> = ({ product, widthConfig = 'default' }) => { 
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/product')
+  };
 
     const widthClasses =
     widthConfig === 'carousel'
@@ -18,10 +24,12 @@ const CardProduct: React.FC<CardProductProps> = ({ product, widthConfig = 'defau
       ? 'w-[calc(50%-4px)] md:w-[calc(33.33%-12px)] lg+:w-[calc(50%-10px)] xl:w-[calc(33.33%-12px)]'
       : widthConfig === 'productlist'
       ? 'w-[calc(25%-16px)]'
+      : widthConfig === 'productdetail'
+      ? 'w-[90%]'
       : 'w-[calc(50%-4px)] md:w-[calc(33%-10px)] lg:w-[calc(25%-12px)] xl:w-[calc(20%-14px)]';
 
   return (
-    <div className={`${widthClasses} bg-bg border-solid border-[0.7px] border-[#DEDEDE] overflow-hidden rounded-[16px] p-4 flex flex-col gap-[10px] relative group cursor-pointer`}>
+    <div onClick={handleClick} className={`${widthClasses} bg-bg border-solid border-[0.7px] border-[#DEDEDE] overflow-hidden rounded-[16px] p-4 flex flex-col gap-[10px] relative group cursor-pointer`}>
         <div className='absolute w-[36px] h-[36px] bg-bg-alt1 top-[22px] right-[22px] rounded-[50%] cursor-pointer center opacity-0 group-hover:opacity-100 transition-all duration-300'>
           <img src={heartIcon}></img>
         </div>

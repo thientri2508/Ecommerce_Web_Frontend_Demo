@@ -43,7 +43,7 @@ const CategoryList = () => {
   if (error) return <ErrorFallback message={error instanceof Error ? error.message : 'Lỗi từ máy chủ'} />;
 
   return (
-    <div className='relative mt-5 md:mt-10 px-8 md:px-[80px]'>
+    <div className='relative mt-5 md:mt-10 px-8 md:px-[80px] select-none'>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={30}

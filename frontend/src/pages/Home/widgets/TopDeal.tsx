@@ -40,9 +40,9 @@ const TopDeal: React.FC<TopDealProps> = ({ setLoading }) => {
             </div>
             <div className="w-full lg+:w-[60%] flex flex-wrap gap-1 md:gap-4">
               {/* {products?.map((product: Product) => (
-              <li key={product.id}><CardProduct product={product} /></li>
+                <CardProduct key={product.id} product={product} widthConfig="topdeal" />
               ))} */}
-              {products?.map((product: Product) => (
+              {products?.slice(0, 6).map((product: Product) => (
                 <CardProduct key={product.id} product={product} widthConfig="topdeal" />
               ))}
             </div>

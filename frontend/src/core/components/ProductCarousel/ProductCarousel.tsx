@@ -56,7 +56,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ status_product, setLo
     <div className='relative mt-5 md:mt-10 px-0 md:px-5'>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={5}
+        spaceBetween={10}
         slidesPerView={5}
         slidesPerGroup={5}
         onSlideChange={handleSlideChange}

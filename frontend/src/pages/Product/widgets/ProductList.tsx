@@ -43,7 +43,7 @@ interface ProductListProps {
         <div className="flex flex-wrap gap-1 md:gap-4 ml-4">
             {sortedData?.map((product: Product) => <CardProduct key={product.id} product={product} widthConfig='productlist' />)}
         </div>
-        <div className="flex justify-center items-center mt-14 gap-2">
+        <div className="center mt-14 gap-2">
           <Pagination current={currentPage} pageSize={product_page_size} total={data?.total} showSizeChanger={false} onChange={onPageChange} />
         </div>
     </>
