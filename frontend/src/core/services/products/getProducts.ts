@@ -4,7 +4,7 @@ import { validateNonEmptyArray } from '../../utils/validation/arrayValidation';
 import connectAPI from '../../config/connectAPI';
 import { Product } from '../../types/Product';
 import { APIResponse } from '../../types/App';
-import { console } from 'inspector';
+
 
 // Định nghĩa kiểu dữ liệu cho tham số lọc
 export interface ProductParams {
