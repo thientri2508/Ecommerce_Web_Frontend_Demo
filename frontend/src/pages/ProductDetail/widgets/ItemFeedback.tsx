@@ -5,7 +5,7 @@ import productImg from "../../../core/assets/product/product5.png";
 import userImg from "../../../core/assets/user/user1.png";
 
 const ItemFeedback = () => {
-  const images = new Array(8).fill(productImg);
+  const images = new Array(4).fill(productImg);
 
   return (
     <div className="w-full py-8 border-b-[1px] border-solid">
@@ -18,7 +18,7 @@ const ItemFeedback = () => {
             ></img>
             <div className="flex flex-col gap-2">
               <div className="text-[14px]">Pikachuansicula</div>
-              <div className="flex gap-2 items-center"><StarRatingList rating={5} /><div className="font-light text-[12px] text-text-muted">5 sao</div></div>
+              <div className="flex gap-2"><StarRatingList rating={5} /><div className="font-light text-[12px] text-text-muted mt-1">5 sao</div></div>
             </div>
           </div>
           <div className="text-[12px] flex gap-[2px] items-center font-light text-text-muted mt-4">
@@ -37,7 +37,7 @@ const ItemFeedback = () => {
           </div>
         </div>
         <div className="w-[46%] pl-4">
-          <ImageGalleryFeedback images={images} maxImagesToShow={3} />
+          <ImageGalleryFeedback images={images} maxImagesToShow={4} />
         </div>
       </div>
       <div className="font-light text-[15px] mt-5">

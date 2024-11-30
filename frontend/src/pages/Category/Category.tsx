@@ -8,6 +8,7 @@ import ImageCarousel from "../../core/components/ImageCarousel/ImageCarousel"
 import ProductList from "../../core/components/ProductList/ProductList"
 import { useLocation } from "react-router-dom"
 import { useEffect } from "react"
+import { best_selling_product, favorite_product } from "../../core/constants/constants.statusProduct"
 
 const Category = () => {
 
@@ -35,8 +36,8 @@ const Category = () => {
           <img src={banner15}></img>
         </div>
 
-        <ProductList text="sản phẩm bán chạy" />
-        <ProductList text="sản phẩm được yêu thích nhất" />
+        <ProductList text="sản phẩm bán chạy" filter={{status_product: best_selling_product}} />
+        <ProductList text="sản phẩm được yêu thích nhất" filter={{status_product: favorite_product}} />
       </div>
     </main>
   )

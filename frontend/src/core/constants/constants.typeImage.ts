@@ -1,0 +1,6 @@
+export const banner = 'BANNER'
+export const banner_best_selling_product = 'BANNER_HOT'
+export const banner_sale_product = 'BANNER_SALE'
+export const banner_suggested_product = 'BANNER_RECOMMEND'
+export const banner_footer = 'BANNER_FOOTER'
+export const banner_slide = 'BANNER_SLICE'

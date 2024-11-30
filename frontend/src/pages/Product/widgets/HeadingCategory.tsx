@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useCategoryById } from "../../../core/hooks/categories/useCategories";
+import { Category } from "../../../core/types/Category";
 
 export const HeadingCategory = () => {
   const [searchParams] = useSearchParams();
@@ -14,7 +15,7 @@ export const HeadingCategory = () => {
         <p className="text-category font-bold">Danh mục sản phẩm</p>
       ) : (
         <>
-          <p className="text-category font-bold">{category?.position_name}</p>
+          <p className="text-category font-bold">{(category as Category)?.position_name}</p>
           <span className="font-light text-text">(232 sản phẩm)</span>
         </>
       )}

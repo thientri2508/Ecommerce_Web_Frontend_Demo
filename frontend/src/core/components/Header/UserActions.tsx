@@ -29,8 +29,8 @@ const UserActions = () => {
                 <li><img src={bagIcon} className='w-[20px] h-[20px] flip-effect'></img></li>
                 <li className='text-center'>Giỏ hàng</li>
             </ul>
-            <div className='absolute z-10 w-[30px] h-[20px] text-[10px] text-[#FFF] rounded-[20px] bg-bg-alt2 right-[-6px] top-[-10px] flex items-center justify-center'>
-                <span>99+</span>
+            <div className='absolute z-10 w-[30px] h-[20px] text-[10px] text-[#FFF] rounded-[20px] bg-bg-alt2 right-[-7px] top-[-10px] flex items-center justify-center'>
+                <span>10</span>
             </div>
         </li>
     </ul>

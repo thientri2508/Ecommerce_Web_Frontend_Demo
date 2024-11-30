@@ -1,4 +1,4 @@
-import Tag from "../../core/components/Tag/Tag"
+// import Tag from "../../core/components/Tag/Tag"
 // import banner2 from "../../core/assets/banner/banner2.png"
 // import banner3 from "../../core/assets/banner/banner3.png"
 import banner4 from "../../core/assets/banner/banner4.png"
@@ -64,13 +64,13 @@ const Home = () => {
   return (
     <main className="w-full">
       <div className="w-full md:max-w-[1380px] m-auto pt-8">
-        {loadedLists.includes(1) &&
+        {/* {loadedLists.includes(1) &&
         <ul className="hidden md:flex gap-2 px-10">
           <li><Tag text="Lorem ipsum dolor sit amet" /></li>
           <li><Tag text="Lorem ipsum " /></li>
           <li><Tag text="Lorem ipsum dolor" /></li>
           <li><Tag text="Lorem ipsum dolor sit amet" /></li>
-        </ul>}
+        </ul>} */}
 
         {/* {loadedLists.includes(1) &&
         <div className="flex gap-5 mt-[-32px] md:mt-8 h-[200px] md:h-[425px] md:px-5 select-none">

@@ -9,6 +9,7 @@ import Filter from "../Product/widgets/Filter";
 import ProductList from "../Product/widgets/ProductList";
 import { useState } from "react";
 import Modal from "../Product/widgets/Modal/Modal";
+import { favorite_product, suggested_product } from "../../core/constants/constants.statusProduct";
 
 const Store = () => {
 
@@ -42,7 +43,7 @@ const Store = () => {
 
         <div className="w-full bg-bg rounded-[16px] mt-10 px-[10px] sm-:px-[20px] md:px-[60px] pt-4 md:pt-10 pb-[40px] md:pb-14">
           <Heading text="SPECIAL DEAL | BLACK FRIDAY 29.11" />
-          <ProductCarousel />
+          <ProductCarousel status_product={favorite_product} />
         </div>
 
         <div className="w-full h-[660px] mt-8 rounded-[16px] bg-cover bg-center shadow-custom-shadow" style={{ backgroundImage: `url(${banner2})` }}>
@@ -50,7 +51,7 @@ const Store = () => {
 
         <div className="w-full bg-bg rounded-[16px] mt-10 px-[10px] sm-:px-[20px] md:px-[60px] pt-4 md:pt-10 pb-[40px] md:pb-14">
           <Heading text="bộ sưu tập thu đông" />
-          <ProductCarousel />
+          <ProductCarousel status_product={suggested_product} />
         </div>
 
         <div className="w-full flex justify-between items-start gap-5 mt-8">

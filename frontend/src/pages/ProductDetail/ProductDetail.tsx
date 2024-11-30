@@ -8,6 +8,7 @@ import ProductVoucher from "./widgets/ProductVoucher"
 import ProductDetailInfo from "./widgets/ProductDetailInfo"
 import ProductFeedback from "./widgets/ProductFeedback"
 import ProductList from "../../core/components/ProductList/ProductList"
+import { new_product } from "../../core/constants/constants.statusProduct"
 // import { useProductDetail } from "../../core/hooks/products/useProductDetail"
 
 const ProductDetail = () => {
@@ -54,13 +55,13 @@ const ProductDetail = () => {
             <ProductDetailInfo />
             <ProductFeedback />
           </div>
-          <div className="w-[18%] bg-white">
+          <div className="w-[18%] bg-white rounded-[16px]">
             <div className="font-semibold text-[16px] w-full text-center py-6">Sản phẩm của shop</div>
             
           </div>
         </div>
-        <div className="w-full bg-bg rounded-[16px]">
-          <ProductList text="sản phẩm liên quan" />
+        <div className="w-full bg-bg rounded-[16px] mt-10">
+          <ProductList text="sản phẩm liên quan" filter={{status_product: new_product}} />
         </div>
       </div>
     </main>

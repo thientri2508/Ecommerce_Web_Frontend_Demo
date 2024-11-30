@@ -60,6 +60,14 @@
 input[type="search"]::-webkit-search-cancel-button {
 	-webkit-appearance: none;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 .swiper-pagination-bullet {
 	background-color: #fff !important; 
 	width: 12px !important;

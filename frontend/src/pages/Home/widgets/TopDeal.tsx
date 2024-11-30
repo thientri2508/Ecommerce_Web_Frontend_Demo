@@ -33,18 +33,18 @@ const TopDeal: React.FC<TopDealProps> = ({ setLoading }) => {
   return (
     <div className="mt-8 w-full px-0 sm-:px-10 py-6 sm-:py-12 border-solid border-2 md:rounded-[30px]">
         <div className="font-heading text-[18px] md:text-headingText text-headingColor uppercase px-7">Top Deal</div>
-        <div className="flex flex-col lg+:flex-row justify-center gap-[40px] mt-6 sm-:mt-10">
+        <div className="flex flex-col lg+:flex-row justify-center items-start gap-[40px] mt-6 sm-:mt-10">
             <div className="*:w-[500px] flex flex-row lg+:flex-col gap-4">
-                <div><img src={banner1} className="w-full aspect-square md:h-[365px] object-cover"></img></div>
-                <div><img src={banner2} className="w-full aspect-square md:h-[365px] object-cover"></img></div>
+                <div><img src={banner1} className="w-full aspect-square md:h-[350px] object-cover"></img></div>
+                <div><img src={banner2} className="w-full aspect-square md:h-[350px] object-cover"></img></div>
             </div>
             <div className="w-full lg+:w-[60%] flex flex-wrap gap-1 md:gap-4">
-              {/* {products?.map((product: Product) => (
-                <CardProduct key={product.id} product={product} widthConfig="topdeal" />
-              ))} */}
-              {products?.slice(0, 6).map((product: Product) => (
+              {products?.map((product: Product) => (
                 <CardProduct key={product.id} product={product} widthConfig="topdeal" />
               ))}
+              {/* {products?.slice(0, 6).map((product: Product) => (
+                <CardProduct key={product.id} product={product} widthConfig="topdeal" />
+              ))} */}
             </div>
         </div>
         <div className="center mt-10"><Button text="Xem thêm" icon={<FaArrowRight size={20} />} iconPosition="right" colorConfig="stroke" /></div>

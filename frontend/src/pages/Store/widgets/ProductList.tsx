@@ -1,13 +1,13 @@
 import CardProduct from "../../../core/components/CardProduct/CardProduct";
 import { useProductsByFilter } from "../../../core/hooks/products/useProducts";
-import ProductListLoading from "./ProductListLoading";
 import ErrorFallback from "../../../core/components/ErrorFallback/ErrorFallback";
 import React, { useState } from 'react';
 import { Product } from "../../../core/types/Product";
 import { product_page_size } from "../../../core/constants/constants.pageSize";
 import { Pagination } from "antd";
 import { useSearchParams } from "react-router-dom";
-import { FILTER_BY_CATEGORY } from "../../../core/constants/constants.filterProducts";
+import { FILTER_BY_STORE } from "../../../core/constants/constants.filterProducts";
+import ProductListLoading from "../../Product/widgets/ProductListLoading";
 
 interface ProductListProps {
     filterPrice?: number;
@@ -16,17 +16,17 @@ interface ProductListProps {
   const ProductList: React.FC<ProductListProps> = ({ filterPrice = 0 }) => {
 
     const [searchParams] = useSearchParams();
-    const idCategory = searchParams.get("idCategory");
+    const idStore = searchParams.get("idStore");
 
     const [currentPage, setCurrentPage] = useState<number>(1)
 
     const onPageChange = (page: number) => {
       setCurrentPage(page);
-      window.scrollTo({ top: 0, behavior: "smooth" })
+      window.scrollTo({ top: 1000, behavior: "smooth" })
     };
   
 
-    const { data, isLoading, error } = useProductsByFilter({filter_id: idCategory!, page: currentPage, page_size: product_page_size}, FILTER_BY_CATEGORY);
+    const { data, isLoading, error } = useProductsByFilter({filter_id: '1', page: currentPage, page_size: product_page_size}, FILTER_BY_STORE);
 
     const sortedData = React.useMemo(() => {
       if (!Array.isArray(data?.list)) return [];
