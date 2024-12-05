@@ -1,27 +1,24 @@
 import { useState } from "react";
-import productImg from "../../../core/assets/product/product2.png";
-import productSubImg from "../../../core/assets/product/product3.png";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Image } from "antd";
+import { ImageProduct } from "../../../core/types/ImageProduct";
 
-const ProductImage = () => {
-  const images = [
-    productSubImg,
-    productSubImg,
-    productSubImg,
-    productSubImg,
-    productSubImg,
-    productSubImg,
-    productSubImg,
-    productSubImg,
-  ];
+interface ProductImageProps {
+  images?: string;
+  logo_product?: string;
+}
+
+const ProductImage: React.FC<ProductImageProps> = ({ images, logo_product }) => {
+
+  const image_list = images ? JSON.parse(images) : [];
+
   const [startIndex, setStartIndex] = useState(0); // Chỉ mục của item đầu tiên
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null); // Chỉ mục của item được chọn
 
   const visibleItems = 5; // Số item hiển thị cùng lúc
 
   const handleNext = () => {
-    if (startIndex + visibleItems < images.length) {
+    if (startIndex + visibleItems < image_list.length) {
       setStartIndex(startIndex + 1);
     }
   };
@@ -38,49 +35,51 @@ const ProductImage = () => {
 
   return (
     <div className="flex items-center justify-between gap-2 mt-5">
-      <div className="relative ml-5">
-        <button
-          onClick={handlePrev}
-          disabled={startIndex === 0}
-          className="absolute top-[-30px] left-1/2 -translate-x-1/2 text-gray-500 hover:text-black disabled:opacity-50"
-        >
-          <IoIosArrowUp size={23} />
-        </button>
-
-        <div className="overflow-hidden h-[335px] relative">
-          <div
-            className="flex flex-col transition-transform duration-300"
-            style={{
-              transform: `translateY(-${startIndex * 68}px)`,
-            }}
+      <div className='relative ml-5'>
+        <div className={`${image_list.length === 0 ? 'hidden' : ''}`}>
+          <button
+            onClick={handlePrev}
+            disabled={startIndex === 0}
+            className="absolute top-[-30px] left-1/2 -translate-x-1/2 text-gray-500 hover:text-black disabled:opacity-50"
           >
-            {images.map((img, idx) => (
-              <div key={idx} className="flex justify-center items-center mb-2">
-                <img
-                  src={img}
-                  className={`w-[60px] h-[60px] rounded-[8px] cursor-pointer hover:opacity-40 ${
-                    idx === selectedIndex
-                      ? "border-bg-alt1 border-2"
-                      : "border-none"
-                  }`}
-                  onClick={() => handleSelectItem(idx)}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+            <IoIosArrowUp size={23} />
+          </button>
 
-        <button
-          onClick={handleNext}
-          disabled={startIndex + visibleItems >= images.length}
-          className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 text-gray-500 hover:text-black disabled:opacity-50"
-        >
-          <IoIosArrowDown size={23} />
-        </button>
+          <div className="overflow-hidden h-[335px] relative">
+            <div
+              className="flex flex-col transition-transform duration-300"
+              style={{
+                transform: `translateY(-${startIndex * 68}px)`,
+              }}
+            >
+              {image_list.map((img: ImageProduct, idx: number) => (
+                <div key={img?.id} className="flex justify-center items-center mb-2">
+                  <img
+                    src={img?.uri}
+                    className={`w-[60px] h-[60px] rounded-[8px] cursor-pointer hover:opacity-40 ${
+                      idx === selectedIndex
+                        ? "border-bg-alt1 border-2"
+                        : "border-none"
+                    }`}
+                    onClick={() => handleSelectItem(idx)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button
+            onClick={handleNext}
+            disabled={startIndex + visibleItems >= image_list.length}
+            className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 text-gray-500 hover:text-black disabled:opacity-50"
+          >
+            <IoIosArrowDown size={23} />
+          </button>
+        </div>
       </div>
       <Image
         width={'82%'}
-        src={selectedIndex !== null ? images[selectedIndex] : productImg}
+        src={selectedIndex !== null ? image_list[selectedIndex].uri : logo_product}
         className="w-[82%] aspect-square rounded-[16px] cursor-zoom-in"
         preview={{
           mask: false,

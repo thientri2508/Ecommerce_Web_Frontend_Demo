@@ -55,7 +55,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, closeModal }) => {
     setSelectedBrands([])
   };
 
-  if (!isOpen) return null;
+  if (!isOpen) return null; 
 
   return (
     <div className="fixed inset-0 z-50 bg-gray-600 bg-opacity-50 flex justify-center items-center">

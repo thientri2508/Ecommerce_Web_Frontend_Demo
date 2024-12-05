@@ -68,6 +68,7 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
 .swiper-pagination-bullet {
 	background-color: #fff !important; 
 	width: 12px !important;
@@ -111,3 +112,22 @@ background-color: #D91D2C !important;
 .ant-pagination-jump-next:hover .ant-pagination-item-container .anticon {
   color: #D91D2C !important; 
 }
+
+.custom-checkbox .ant-checkbox-inner {
+	background-color: #D91D2C !important;
+	border-color: #FFF !important;
+  }
+  .custom-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+	background-color: #D91D2C !important;
+	border-color: #D91D2C !important;
+  }
+  .custom-checkbox .ant-checkbox-checked .ant-checkbox-inner::after {
+	border-color: white ;
+  }
+  .custom-checkbox .ant-checkbox:hover .ant-checkbox-inner {
+	border-color: #D91D2C !important;
+  }
+  .custom-checkbox .ant-checkbox-checked:hover .ant-checkbox-inner {
+	background-color: #D91D2C !important;
+	border-color: #D91D2C !important;
+  }

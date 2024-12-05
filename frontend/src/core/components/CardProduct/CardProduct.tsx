@@ -3,6 +3,7 @@ import TagVoucher from "../TagVoucher/TagVoucher";
 import { Product } from "../../types/Product";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { ROUTES } from "../../constants/constants.router";
 
 interface CardProductProps {
   product: Product;
@@ -19,8 +20,8 @@ const CardProduct: React.FC<CardProductProps> = ({
   widthConfig = "default",
 }) => {
   const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/product");
+  const handleClick = (id: number) => {
+    navigate(`${ROUTES.PRODUCT_DETAIL}?id=${id}`);
   };
 
   const [isLoading, setIsLoading] = useState(true);
@@ -42,7 +43,7 @@ const CardProduct: React.FC<CardProductProps> = ({
 
   return (
     <div
-      onClick={handleClick}
+      onClick={() => handleClick(product?.id)}
       className={`${widthClasses} bg-bg border-solid border-[0.7px] border-[#DEDEDE] overflow-hidden rounded-[16px] p-4 flex flex-col gap-[10px] relative group cursor-pointer`}
     >
       <div className="absolute w-[36px] h-[36px] bg-bg-alt1 top-[22px] right-[22px] rounded-[50%] cursor-pointer center opacity-0 group-hover:opacity-100 transition-all duration-300">

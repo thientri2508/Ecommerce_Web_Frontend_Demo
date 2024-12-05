@@ -12,7 +12,8 @@ export const DropdownCategory = ({category} : {category: Category}) => {
   const subCategories = category.json_cate ? JSON.parse(category.json_cate) : [];
 
   const [searchParams] = useSearchParams();
-  const idCategory = searchParams.get('idCategory'); 
+  const idCategory = searchParams.get('idCategory');
+  const p_id = searchParams.get('p_id');
   const idParent = searchParams.get('idParent'); 
 
   useEffect(() => {
@@ -24,7 +25,7 @@ export const DropdownCategory = ({category} : {category: Category}) => {
   return (
     <div className="select-none">
       <div
-        className={`w-full flex justify-between items-center ${category?.id == Number(idCategory) ? 'text-bg-alt1' : 'text-text'} py-[12px]`}
+        className={`w-full flex justify-between items-center ${category?.id == Number(p_id) ? 'text-bg-alt1' : 'text-text'} py-[12px]`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <h4>{category?.position_name} <span className="font-light text-[13px] text-text-muted">(10)</span></h4>

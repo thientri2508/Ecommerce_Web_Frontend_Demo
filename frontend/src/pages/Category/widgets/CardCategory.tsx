@@ -5,6 +5,7 @@ interface CardCategoryProps {
 }
 
 const CardCategory: React.FC<CardCategoryProps> = ({ category }) => {
+  
   return (
     <div className="w-full p-4 rounded-[16px] bg-CardCategory flex flex-col justify-between cursor-pointer group">
         <h3>{category?.position_name}</h3>

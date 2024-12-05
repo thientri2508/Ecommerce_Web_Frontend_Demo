@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './core/styles/index.css'
 import App from './App.tsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ModalProvider } from './core/context/ModalContext.tsx';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,7 +19,9 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <ModalProvider>
+        <App />
+      </ModalProvider>
     </QueryClientProvider>
   </StrictMode>,
 )

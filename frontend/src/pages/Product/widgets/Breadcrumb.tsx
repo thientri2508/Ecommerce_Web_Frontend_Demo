@@ -7,7 +7,10 @@ import { Category } from "../../../core/types/Category";
 const Breadcrumb = () => {
 
   const [searchParams] = useSearchParams();
-  const idCategory = searchParams.get("idCategory");
+  const p_id = searchParams.get("p_id");
+  const category_id = searchParams.get("idCategory");
+
+  const idCategory = p_id || category_id || null;
 
   const { data, isError, isLoading } = useParentCategories(idCategory!);
 

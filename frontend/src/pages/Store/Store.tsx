@@ -6,7 +6,7 @@ import Heading from "../../core/components/Heading/Heading";
 import ProductCarousel from "../../core/components/ProductCarousel/ProductCarousel";
 import { HeadingCategory } from "../Product/widgets/HeadingCategory";
 import Filter from "../Product/widgets/Filter";
-import ProductList from "../Product/widgets/ProductList";
+import ProductList from "./widgets/ProductList";
 import { useState } from "react";
 import Modal from "../Product/widgets/Modal/Modal";
 import { favorite_product, suggested_product } from "../../core/constants/constants.statusProduct";
@@ -73,7 +73,7 @@ const Store = () => {
             </div>
 
             <div className="bg-bg w-full rounded-[10px] mt-4 pt-4 pb-10">
-              <ProductList filterPrice={filterPrice} />
+              {/* <ProductList filterPrice={filterPrice} /> */}
             </div>
           </div>
         </div>

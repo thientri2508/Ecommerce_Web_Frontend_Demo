@@ -1,27 +1,38 @@
 import { FaPlus, FaStar } from "react-icons/fa6";
 import { PiLineVertical } from "react-icons/pi";
 import TagVoucher from "../../../core/components/TagVoucher/TagVoucher";
-import productImg from "../../../core/assets/product/product4.png";
-import { IoIosArrowForward } from "react-icons/io";
+// import productImg from "../../../core/assets/product/product4.png";
+// import { IoIosArrowForward } from "react-icons/io";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { useState } from "react";
-import productSizeImg from "../../../core/assets/product/product3-size.png";
-import { IoCloseSharp } from "react-icons/io5";
+// import productSizeImg from "../../../core/assets/product/product3-size.png";
+// import { IoCloseSharp } from "react-icons/io5";
 import { RiSubtractFill } from "react-icons/ri";
+import { Product } from "../../../core/types/Product";
+import { AttributeProduct } from "../../../core/types/AttributeProduct";
 
-const ProductInfo = () => {
-  const sizes = ["S", "M", "L", "XL", "XXL"];
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const [selectedColor, setSelectedColor] = useState<number | null>(null);
-  const [isModalSizeOpen, setIsModalSizeOpen] = useState(false);
+const ProductInfo = ({product}: {product: Product}) => {
+
+  const list_attribute = product.list_attribute ? JSON.parse(product.list_attribute) : [];
+
+  const titleAttribute1 = [...new Set(list_attribute.map((item: AttributeProduct) => item.title_attribute1))][0] as string | null;
+  const titleAttribute2 = [...new Set(list_attribute.map((item: AttributeProduct) => item.title_attribute2))][0] as string | null;
+
+  const uniqueAttribute1 = [...new Set(list_attribute.map((item: AttributeProduct) => item.attribute1))] as string[];
+  const uniqueAttribute2 = [...new Set(list_attribute.map((item: AttributeProduct) => item.attribute2))] as string[];
+
+  //const sizes = ["S", "M", "L", "XL", "XXL"];
+  const [selectedAttr1, setSelectedAttr1] = useState<string | null>(null);
+  const [selectedAttr2, setSelectedAttr2] = useState<string | null>(null);
+  // const [isModalSizeOpen, setIsModalSizeOpen] = useState(false);
   const [quantity, setQuantity] = useState<number>(1);
 
-  const handleSizeClick = (size: string) => {
-    setSelectedSize(size);
+  const handleAttr1Click = (attr1: string) => {
+    setSelectedAttr1(attr1);
   };
 
-  const handleColorClick = (index: number) => {
-    setSelectedColor(index);
+  const handleAttr2Click = (attr2: string) => {
+    setSelectedAttr2(attr2);
   };
 
   const handleIncrease = () => {
@@ -45,20 +56,15 @@ const ProductInfo = () => {
 
   return (
     <div className="w-full flex flex-col">
-      <div className="text-[20px] font-semibold line-clamp-2 overflow-hidden text-ellipsis">
-        Áo thun MARY MARY tay xắn ống. Áo thun polo Lovito dệt kim waffle 112
-        màu trơn thường ngày cho nữ L68ED039 (Nhiều màu)
-      </div>
+      <div className="text-[20px] font-semibold line-clamp-2 overflow-hidden text-ellipsis">{product?.product_name}</div>
       <ul className="flex items-center gap-2 text-[14px] mt-2">
         <li>
           <ul className="flex gap-[10px]">
-            <li className="font-medium">5.0</li>
+            <li className="font-medium">{product?.rating}.0</li>
             <li className="flex gap-[2px]">
-              <FaStar size={18} color="#FFD000" />
-              <FaStar size={18} color="#FFD000" />
-              <FaStar size={18} color="#FFD000" />
-              <FaStar size={18} color="#FFD000" />
-              <FaStar size={18} color="#FFD000" />
+              {Array.from({ length: product?.rating }, (_, index) => (
+                <FaStar key={index} size={18} color="#FFD000" />
+              ))}
             </li>
             <li className="font-light text-text-muted">(231)</li>
           </ul>
@@ -66,8 +72,8 @@ const ProductInfo = () => {
         <li>
           <PiLineVertical size={20} color="#818181" />
         </li>
-        <li className="text-text-muted">
-          <span className="font-medium text-[#000000]">11,3k</span> Đã bán
+        <li className="font-medium text-[#000000]">
+          <span className="text-text-muted">Đã bán</span> 0
         </li>
         <li>
           <PiLineVertical size={20} color="#818181" />
@@ -80,17 +86,70 @@ const ProductInfo = () => {
       </ul>
 
       <div className="w-full mt-6 p-4 flex gap-5 items-center font-price border-solid border-[#f0f0f0] border-[1px] rounded-[16px]">
-        <div className="text-priceColor font-bold text-[28px]">1.999.000 đ</div>
-        <TagVoucher text="%" />
-        <div className="line-through text-[18px] text-priceColor-alt">
-          2.999.000 đ
-        </div>
+        {product?.discount > 0 ? (
+          <>
+            <div className="text-priceColor font-bold text-[28px]">
+              {(
+                product?.listed_price *
+                (1 - product.discount / 100)
+              ).toLocaleString("vi-VN")}{" "}
+              đ
+            </div>
+            <TagVoucher text="%" />
+            <div className="line-through text-[18px] text-priceColor-alt">
+              {product?.listed_price.toLocaleString("vi-VN")} đ
+            </div>
+          </>
+        ) : (
+          <div className="text-priceColor font-bold text-[28px]">
+            {product?.listed_price.toLocaleString("vi-VN")} đ
+          </div>
+        )}
       </div>
 
-      <div className="text-[16px] mt-6">
+      {titleAttribute1 && (
+        <>
+          <div className="text-[16px] mt-6">{titleAttribute1}: {selectedAttr1}</div>
+          <ul className="mt-3 flex flex-wrap gap-[10px] *:cursor-pointer">
+            {uniqueAttribute1.map((attr1, index) => (
+              <li
+                key={index}
+                className={`border-2 rounded-[8px] hover:border-bg-alt1 px-[21px] py-[7px] transition-all duration-200 ${
+                  selectedAttr1 === attr1 ? "border-bg-alt1" : "border-[#f0f0f0]"
+                }`}
+                onClick={() => handleAttr1Click(attr1)}
+              >
+                {attr1}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {titleAttribute2 && (
+        <>
+          <div className="text-[16px] mt-6">{titleAttribute2}: {selectedAttr2}</div>
+          <ul className="mt-3 flex flex-wrap gap-[10px] *:cursor-pointer">
+            {uniqueAttribute2.map((attr2, index) => (
+              <li
+                key={index}
+                className={`border-2 rounded-[8px] hover:border-bg-alt1 px-[21px] py-[7px] transition-all duration-200 ${
+                  selectedAttr2 === attr2 ? "border-bg-alt1" : "border-[#f0f0f0]"
+                }`}
+                onClick={() => handleAttr2Click(attr2)}
+              >
+                {attr2}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {/* <div className="text-[16px] mt-6">
         Phân loại:{" "}
         <span className="text-[14px] font-light text-text-muted">Đỏ đô</span>
       </div>
+
       <ul className="mt-3 flex gap-[10px] *:cursor-pointer">
         {Array(10)
           .fill(0)
@@ -107,9 +166,9 @@ const ProductInfo = () => {
               />
             </li>
           ))}
-      </ul>
+      </ul> */}
 
-      <div className="flex justify-between">
+      {/* <div className="flex justify-between">
         <div className="text-[16px] mt-6">
           Size:{" "}
           <span className="text-[14px] font-light text-text-muted">
@@ -123,7 +182,15 @@ const ProductInfo = () => {
           <span>Bảng kích thước</span>
           <IoIosArrowForward size={18} />
         </div>
-      </div>
+      </div> */}
+
+        {/* <div className="text-[16px] mt-6">
+          Size:{" "}
+          <span className="text-[14px] font-light text-text-muted">
+            48-53kg
+          </span>
+        </div>
+
       <ul className="mt-3 flex gap-[10px] *:cursor-pointer">
         {sizes.map((size, index) => (
           <li
@@ -136,9 +203,9 @@ const ProductInfo = () => {
             {size}
           </li>
         ))}
-      </ul>
+      </ul> */}
 
-      {isModalSizeOpen && (
+      {/* {isModalSizeOpen && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
           onClick={() => setIsModalSizeOpen(false)}
@@ -160,7 +227,7 @@ const ProductInfo = () => {
             />
           </div>
         </div>
-      )}
+      )} */}
 
       <div className="flex gap-6 mt-8 items-center">
         <div className="flex justify-between items-center w-[240px] rounded-[32px] border-solid border-bg-alt1 border-[1px] px-4 py-2">

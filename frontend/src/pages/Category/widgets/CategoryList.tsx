@@ -18,8 +18,8 @@ const CategoryList = () => {
   return (
     <div className="w-full mt-10 flex flex-wrap gap-x-5 gap-y-10 ml-[10px]">
         {categories?.map((category: Category) =>(
-          <Link to={`${ROUTES.PRODUCTS}?idParent=${idCategory}&idCategory=${category?.id}`} key={category?.id} className="w-[calc(16.66%-20px)]">
-            <CardCategory category={category} />
+          <Link to={`${ROUTES.PRODUCTS}?idParent=${idCategory}&p_id=${category?.id}`} key={category?.id} className="w-[calc(16.66%-20px)]">
+            <CardCategory category={category} /> 
           </Link>))}
     </div>
   )

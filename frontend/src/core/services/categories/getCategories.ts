@@ -16,7 +16,7 @@ export const getAllCategories = async () => {
 export const getCategoriesByLevel = async (level: number) => {
   const url = `${API_ENDPOINTS.CATEGORIES}/get_category_by_level?level_category=${level}`
   const response = await connectAPI<APIResponse<Category>>('GET',url);
-  const categories = response.data
+  const categories = response.data.list
   validateNonEmptyArray(categories, 'danh mục') 
   return categories
 };

@@ -16,7 +16,7 @@ const ListCategory = ({
       {categoriesLv2?.map((categoryLv2: Category) => {
         return (
           <div key={categoryLv2?.id} className="w-[calc(33.33%-56px)]">
-            <Link to={`${ROUTES.PRODUCTS}?idParent=${pId}&idCategory=${categoryLv2?.id}`}>
+            <Link to={`${ROUTES.PRODUCTS}?idParent=${pId}&p_id=${categoryLv2?.id}`}>
               <p className="text-category font-semibold text-text cursor-pointer hover:text-bg-alt1 transition-all duration-200">
                 {categoryLv2?.position_name}
               </p>

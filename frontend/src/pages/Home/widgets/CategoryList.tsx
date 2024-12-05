@@ -59,7 +59,7 @@ const CategoryList = () => {
         loop={false}
         navigation={{ prevEl: `#${prevButtonId}`, nextEl: `#${nextButtonId}` }}
       >
-        {categories?.map((category: Category) => (
+        {categories?.map((category: Category) => ( 
             <SwiperSlide key={category.id} className='w-1/10'><CardCategory category={category} /></SwiperSlide>
         ))}
       </Swiper>

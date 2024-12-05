@@ -4,7 +4,10 @@ import { Category } from "../../../core/types/Category";
 
 export const HeadingCategory = () => {
   const [searchParams] = useSearchParams();
-  const idCategory = searchParams.get("idCategory")
+  const p_id = searchParams.get("p_id");
+  const category_id = searchParams.get("idCategory");
+
+  const idCategory = p_id || category_id || null;
   const { data: category, isError, isLoading } = useCategoryById(idCategory!)
   
   return (

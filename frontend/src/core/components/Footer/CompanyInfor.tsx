@@ -3,6 +3,7 @@ import bookIcon from '../../assets/icon/book-icon.png'
 import phoneIcon from '../../assets/icon/phone-icon.png'
 import locationIcon from '../../assets/icon/location-icon.png'
 import mailIcon from '../../assets/icon/mail-icon.png'
+import verify from '../../assets/logo/verify.png'
 
 const CompanyInfor = () => {
   return (
@@ -25,6 +26,7 @@ const CompanyInfor = () => {
             <img src={phoneIcon}></img>
             <span>Tổng đài CSKH: <span className='text-headingFooter text-bg-alt1 font-medium'>0934094167</span></span>
         </li>
+        <li><a href='http://online.gov.vn/Home/WebDetails/126538?AspxAutoDetectCookieSupport=1'><img src={verify} className='cursor-pointer w-[200px] h-[76px]'></img></a></li>
     </ul>
   )
 }

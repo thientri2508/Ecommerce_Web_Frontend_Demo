@@ -1,10 +1,4 @@
-// import Tag from "../../core/components/Tag/Tag"
-// import banner2 from "../../core/assets/banner/banner2.png"
-// import banner3 from "../../core/assets/banner/banner3.png"
-import banner4 from "../../core/assets/banner/banner4.png"
-import banner7 from "../../core/assets/banner/banner7.png"
 import banner8 from "../../core/assets/banner/banner8.png"
-import banner9 from "../../core/assets/banner/banner9.png"
 import ProductCarousel from "../../core/components/ProductCarousel/ProductCarousel"
 import ProductList from "../../core/components/ProductList/ProductList"
 import TopDeal from "./widgets/TopDeal"
@@ -13,9 +7,9 @@ import CategoryList from "./widgets/CategoryList"
 import FlashSale from "./widgets/FlashSale"
 import Banner from "../../core/components/Banner/Banner"
 import { useState, useEffect } from 'react';
-import banner1 from "../../core/assets/banner/banner1.png"
 import ImageCarousel from "../../core/components/ImageCarousel/ImageCarousel"
 import { best_selling_product, favorite_product, new_product, suggested_product } from "../../core/constants/constants.statusProduct"
+import { banner_best_selling_product, banner_favourite_product, banner_slide, banner_suggested_product } from "../../core/constants/constants.typeImage"
 
 const Home = () => {
 
@@ -37,8 +31,6 @@ const Home = () => {
       loadMoreLists();
     }
   };
-
-  const DataImageCarousel = [banner1, banner4]
 
   const loadMoreLists = () => {
     setLoading(true);
@@ -83,20 +75,20 @@ const Home = () => {
 
         {loadedLists.includes(1) &&
         <div className="mt-[-32px] md:mt-8 h-[200px] md:h-[425px] md:px-5 select-none">
-          <ImageCarousel images={DataImageCarousel} />
+          <ImageCarousel name={banner_slide} />
         </div>}
 
         {loadedLists.includes(1) && <CategoryList /> }
 
         {loadedLists.includes(1) && <FlashSale />}
 
-        {loadedLists.includes(2) && <Banner img={banner4} />}
+        {loadedLists.includes(2) && <Banner name={banner_best_selling_product} />}
 
         {loadedLists.includes(2) && <ProductList text="sản phẩm bán chạy" filter={{status_product: best_selling_product}} />}
 
         {loadedLists.includes(3) && <TopDeal setLoading={setLoading} />}
 
-        {loadedLists.includes(3) && <Banner img={banner7} />}
+        {loadedLists.includes(3) && <Banner name={banner_favourite_product} />}
 
         {loadedLists.includes(4) &&
           <div className="w-full mt-10 px-[10px] sm-:px-[20px] md:px-[60px] pt-4 md:pt-14 pb-[40px] md:pb-14 border-solid border-2 md:rounded-[30px]">
@@ -115,7 +107,7 @@ const Home = () => {
 
       <div className="max-w-[1380px] m-auto">
         {loadedLists.includes(5) && <ProductList text="sản phẩm mới" setLoading={setLoading} filter={{status_product: new_product}} />}
-        {loadedLists.includes(5) && <Banner img={banner9} />}
+        {loadedLists.includes(5) && <Banner name={banner_suggested_product} />}
         {loadedLists.includes(6) && <ProductList text="gợi ý hôm nay" setLoading={setLoading} filter={{status_product: suggested_product}} />}
       </div>
       

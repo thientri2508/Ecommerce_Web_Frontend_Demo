@@ -1,5 +1,3 @@
-import banner11 from "../../core/assets/banner/banner11.png"
-import banner10 from "../../core/assets/banner/banner10.png"
 import { CategoryList } from "./widgets/CategoryList";
 import Filter from "./widgets/Filter";
 import Breadcrumb from "./widgets/Breadcrumb";
@@ -9,10 +7,10 @@ import { useEffect, useState } from "react";
 import Modal from "./widgets/Modal/Modal";
 import { HeadingCategory } from "./widgets/HeadingCategory";
 import { useLocation } from "react-router-dom";
+import { banner_slide_product } from "../../core/constants/constants.typeImage";
 
 const Product = () => {
 
-  const DataImageCarousel = [banner10, banner11]
   const [filterPrice, setFilterPrice] = useState<number>(0);
 
   const location = useLocation();
@@ -36,7 +34,7 @@ const Product = () => {
       <div className="w-full md:max-w-[1340px] m-auto pt-8">
         <Breadcrumb />
         <div className="h-[220px] mt-8">
-          <ImageCarousel images={DataImageCarousel} />
+          <ImageCarousel name={banner_slide_product} />
         </div>
 
         <div className="flex justify-between items-start gap-5 mt-8">
