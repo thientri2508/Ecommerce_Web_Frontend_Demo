@@ -22,5 +22,6 @@ module.exports = {
     'priceColor-alt': '#818181',   // Màu giá tiền phụ
     placeHolderColor: '#848484',
     timeColor: '#FF0014',            // Màu số countdown
-    CardCategory: '#F5F6F8'         // Màu nền thẻ danh mục
+    CardCategory: '#F5F6F8',         // Màu nền thẻ danh mục
+    success: '#00BC00',
 };
