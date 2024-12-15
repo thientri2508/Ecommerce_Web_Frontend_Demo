@@ -48,6 +48,9 @@
 	.btn-pagination {
 		@apply w-[40px] h-[40px] border-solid border-2 text-[16px] cursor-pointer text-text bg-bg rounded-md flex justify-center items-center shadow-custom-shadow
 	}
+	.label-inp {
+		@apply absolute left-7 top-[-1px] transform text-text-muted -translate-y-1/2 text-[14px] transition-all duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-text-muted peer-placeholder-shown:-translate-y-1/2 peer-focus:top-[-1px] bg-white px-[6px] cursor-text
+	}
 	.custom-scrollbar::-webkit-scrollbar {
 		width: 8px;
 	}

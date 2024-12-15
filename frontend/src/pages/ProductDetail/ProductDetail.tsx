@@ -2,17 +2,17 @@ import StoreInfo from "./widgets/StoreInfo";
 import ProductVoucher from "./widgets/ProductVoucher";
 import ProductDetailInfo from "./widgets/ProductDetailInfo";
 import ProductFeedback from "./widgets/ProductFeedback";
-import ProductList from "../../core/components/ProductList/ProductList";
-import { new_product } from "../../core/constants/constants.statusProduct";
 import { useProductDetail } from "../../core/hooks/products/useProductDetail";
 import { useSearchParams } from "react-router-dom";
-import Spinner from "../../core/components/Loading/Spinner";
 import ErrorFallback from "../../core/components/ErrorFallback/ErrorFallback";
 import { PiLineVertical, PiShareFat } from "react-icons/pi";
 import { FaRegHeart } from "react-icons/fa6";
 import ProductImage from "./widgets/ProductImage";
 import ShippingInfo from "./widgets/ShippingInfo";
 import ProductInfo from "./widgets/ProductInfo";
+import { StoreProductList } from "./widgets/StoreProductList";
+import RelatedProducts from "./widgets/RelatedProducts";
+import ProductDetailSkeleton from "./widgets/ProductDetailSkeleton";
 
 const ProductDetail = () => {
   const [searchParams] = useSearchParams();
@@ -20,7 +20,7 @@ const ProductDetail = () => {
 
   const { data: product, error, isLoading } = useProductDetail(id_product!);
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <ProductDetailSkeleton />;
 
   if (error)
     return (
@@ -79,16 +79,11 @@ const ProductDetail = () => {
             <ProductFeedback />
           </div>
           <div className="w-[18%] bg-white rounded-[16px]">
-            <div className="font-semibold text-[16px] w-full text-center py-6">
-              Sản phẩm của shop
-            </div>
+            {product?.id_store && <StoreProductList id_store={product?.id_store} />}
           </div>
         </div>
         <div className="w-full bg-bg rounded-[16px] mt-10">
-          <ProductList
-            text="sản phẩm liên quan"
-            filter={{ status_product: new_product }}
-          />
+          { product?.category_id && (<RelatedProducts category_id={product?.category_id} />)}
         </div>
       </div>
     </main>

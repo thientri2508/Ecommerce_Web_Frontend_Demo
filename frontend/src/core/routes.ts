@@ -6,6 +6,9 @@ import Category from '../pages/Category/Category';
 import Product from '../pages/Product/Product';
 import Store from '../pages/Store/Store';
 import Cart from '../pages/Cart/Cart';
+import Account from '../pages/Account/Account';
+import Login from '../pages/Login/Login';
+import Register from '../pages/Register/Register';
 
 interface RouteType {
     path: string;
@@ -44,6 +47,21 @@ export const routes: RouteType[] = [
     {
         path: ROUTES.CART,
         element: Cart,
+        isPrivate: true,
+    },
+    {
+        path: ROUTES.ACCOUNT,
+        element: Account,
+        isPrivate: true,
+    },
+    {
+        path: ROUTES.LOGIN,
+        element: Login,
+        isPrivate: false,
+    },
+    {
+        path: ROUTES.REGISTER,
+        element: Register,
         isPrivate: false,
     },
 ];

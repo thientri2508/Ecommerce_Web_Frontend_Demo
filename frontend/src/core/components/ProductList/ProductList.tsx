@@ -34,7 +34,7 @@ const ProductList: React.FC<ProductListProps> = ({ text, filter = {}, setLoading
   if (error) return <ErrorFallback message={error instanceof Error ? error.message : 'Lỗi từ máy chủ'} />;
 
   return (
-    <div className="mt-8 w-full px-0 md:px-10 py-0 md:py-8">
+    <div className="mt-8 w-full px-0 md:px-10 py-8">
       <div className="font-heading text-[18px] md:text-headingText text-headingColor uppercase px-7">{text}</div>
       <div className="flex flex-wrap gap-1 md:gap-4 mt-10 md:ml-[8px]">
         {data?.map((product: Product) => <CardProduct key={product.id} product={product} />)}

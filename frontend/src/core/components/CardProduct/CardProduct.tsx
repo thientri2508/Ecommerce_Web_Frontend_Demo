@@ -1,7 +1,7 @@
 import heartIcon from "../../assets/icon/heart-icon.png";
 import TagVoucher from "../TagVoucher/TagVoucher";
 import { Product } from "../../types/Product";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ROUTES } from "../../constants/constants.router";
 
@@ -19,11 +19,6 @@ const CardProduct: React.FC<CardProductProps> = ({
   product,
   widthConfig = "default",
 }) => {
-  const navigate = useNavigate();
-  const handleClick = (id: number) => {
-    navigate(`${ROUTES.PRODUCT_DETAIL}?id=${id}`);
-  };
-
   const [isLoading, setIsLoading] = useState(true);
 
   const handleImageLoad = () => {
@@ -42,8 +37,8 @@ const CardProduct: React.FC<CardProductProps> = ({
       : "w-[calc(50%-4px)] md:w-[calc(33%-10px)] lg:w-[calc(25%-12px)] xl:w-[calc(20%-14px)]";
 
   return (
-    <div
-      onClick={() => handleClick(product?.id)}
+    <Link
+      to={`${ROUTES.PRODUCT_DETAIL}?id=${product?.id}`}
       className={`${widthClasses} bg-bg border-solid border-[0.7px] border-[#DEDEDE] overflow-hidden rounded-[16px] p-4 flex flex-col gap-[10px] relative group cursor-pointer`}
     >
       <div className="absolute w-[36px] h-[36px] bg-bg-alt1 top-[22px] right-[22px] rounded-[50%] cursor-pointer center opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -89,7 +84,7 @@ const CardProduct: React.FC<CardProductProps> = ({
       <div className="line-clamp-2 overflow-hidden text-ellipsis mt-[-7px] leading-tight md:leading-normal">
         {product?.product_name}
       </div>
-    </div>
+    </Link>
   );
 };
 

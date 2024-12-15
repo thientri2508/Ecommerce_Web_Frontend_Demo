@@ -1,14 +1,5 @@
-import axios from 'axios';
 import { handleAPIError } from './handleAPIError';
-import { API_BASE_URL } from './apiConfig';
-
-const axiosInstance = axios.create({
-  baseURL: API_BASE_URL, 
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+import axiosInstance from './axiosInstance';
 
 // Định nghĩa kiểu trả về từ API có thể là một đối tượng với thuộc tính data
 interface ApiResponse<T> {

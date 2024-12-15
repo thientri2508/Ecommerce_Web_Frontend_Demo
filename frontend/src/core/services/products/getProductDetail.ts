@@ -22,6 +22,7 @@ export const getProductById = async (id: string) => {
     
     if ( products && products.length > 0) {
       const product = products[0];
+      console.log(product)
       return product;
     } else {
       throw new Error("Sản phẩm không tồn tại");

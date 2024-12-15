@@ -9,7 +9,7 @@ interface AccountIntroProps {
 const AccountIntro: React.FC<AccountIntroProps> = ({ onRegisterClick, onLoginClick }) => {
   return (
     <div className="w-full h-full px-6">
-      <img src={logo} className="w-[160px] h-[160px] m-auto mt-12"></img>
+      <img src={logo} className="w-[150px] h-[150px] m-auto mt-8"></img>
       <div className="flex flex-col gap-1 mt-[50px]">
         <h2 className="font-bold text-[24px] text-[#555555]">Xin chào,</h2>
         <div className="font-light text-[15px] text-text-muted">Đăng nhập hoặc đăng ký</div>

@@ -59,7 +59,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, closeModal }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white rounded-xl w-[40%] relative">
+      <div className="bg-white rounded-xl max-w-[610px] relative">
         <h2 className="text-xl font-bold w-full text-center border-solid border-b-2 py-[17px]">Bộ Lọc Sản Phẩm</h2>
         <div className="absolute right-8 top-4 cursor-pointer" onClick={closeModal}><IoMdClose size={30} /></div>
         <div className="px-10 py-4">

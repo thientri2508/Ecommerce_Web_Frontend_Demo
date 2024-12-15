@@ -1,14 +1,14 @@
-import './core/styles/App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Layout from './core/components/Layout/Layout';
-import { routes } from './core/routes';
-import { ScrollToTop } from 'react-router-scroll-to-top';
-import PrivateRoute from './core/components/routes/PrivateRoute';
-import PublicRoute from './core/components/routes/PublicRoute';
+import "./core/styles/App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./core/components/Layout/Layout";
+import { routes } from "./core/routes";
+import { ScrollToTop } from "react-router-scroll-to-top";
+import PrivateRoute from "./core/components/routes/PrivateRoute";
+import PublicRoute from "./core/components/routes/PublicRoute";
+import { useAuth } from "./core/context/AuthContext";
 
 function App() {
-
-  const isAuthenticated = true; // Thay đổi bằng logic kiểm tra đăng nhập thực tế
+  const { isAuthenticated } = useAuth();
 
   return (
     <BrowserRouter>
@@ -32,7 +32,7 @@ function App() {
         </Routes>
       </Layout>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

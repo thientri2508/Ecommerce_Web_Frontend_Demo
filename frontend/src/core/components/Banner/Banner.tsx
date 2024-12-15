@@ -10,7 +10,7 @@ const Banner: React.FC<BannerProps> = ({ name }) => {
   const { data, error, isLoading } = useBanner(name);
 
   return (
-    <div className="w-full mt-8">
+    <div className="w-full my-8">
       {isLoading && <BannerSkeleton heightConfig="banner" />}
 
       {error && (

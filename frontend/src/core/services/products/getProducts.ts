@@ -11,6 +11,7 @@ export interface ProductParams {
   page_size?: number;
   p_id?: number | null;
   category_id?: number | null;
+  id_store?: number | null;
   status_product?: string;
 }
 
@@ -35,4 +36,23 @@ export const getProductsByCategory = async (params: ProductParams) => {
     const products = response.data;
     validateNonEmptyArray(products.list, 'sản phẩm')
     return products;
+};
+
+export const getProductsByStore = async (params: ProductParams) => {
+  const body = {
+    page: params?.page,
+    page_size: params?.page_size,
+    sort: "id desc",
+    filters: [
+      {
+        name: "id_store",
+        op: "=",
+        value: params?.id_store,
+      },
+    ],}
+  const url = `${API_ENDPOINTS.PRODUCTS}/read_data`;
+  const response = await connectAPI<APIResponse<Product>>('POST', url, body)
+  const products = response.data.list;
+  validateNonEmptyArray(products, 'sản phẩm')
+  return products;
 };

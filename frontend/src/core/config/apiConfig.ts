@@ -4,5 +4,7 @@ export const API_ENDPOINTS = {
   CATEGORIES: `/category`,
   BANNER_HOME: '/image/get_banner_web',
   STORE: '/store',
+  USER: '/user',
+  CART: '/cart',
   // Định nghĩa thêm các endpoint khác...
 }

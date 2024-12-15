@@ -3,13 +3,16 @@ import { IoMdArrowBack } from "react-icons/io";
 import logo from "../../assets/logo/logo-login.png";
 import successIcon from "../../assets/icon/success.png";
 import { HiOutlineArrowRight } from "react-icons/hi";
+import OTPInput from "./OTPInput";
 
 const Login: React.FC<{ switchToRegister: () => void }> = ({
   switchToRegister,
 }) => {
   const [forgotPasswordStep, setForgotPasswordStep] = useState(0); // 0 = Đăng nhập, 1-4 = Các bước quên mật khẩu
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [otp, setOtp] = useState("");
+  const [password, setPassword] = useState("");
+  const [otp, setOtp] = useState<string[]>(Array(4).fill(""));
+  const [forgotPhoneNumber, setForgotPhoneNumber] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
 
@@ -25,7 +28,7 @@ const Login: React.FC<{ switchToRegister: () => void }> = ({
       alert("Vui lòng nhập số điện thoại.");
       return;
     }
-    if (forgotPasswordStep === 2 && !otp) {
+    if (forgotPasswordStep === 2 && !otp.every((digit) => digit !== "")) {
       alert("Vui lòng nhập mã OTP.");
       return;
     }
@@ -40,6 +43,38 @@ const Login: React.FC<{ switchToRegister: () => void }> = ({
       }
     }
     setForgotPasswordStep(forgotPasswordStep + 1); // Chuyển sang bước tiếp theo
+  };
+
+  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Lấy giá trị đầu vào
+    const value = e.target.value;
+
+    // Chỉ cho phép nhập số và tối đa 12 ký tự
+    if (/^\d{0,12}$/.test(value)) {
+      setPhoneNumber(value);
+    }
+  };
+
+  const handleForgotPhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Lấy giá trị đầu vào
+    const value = e.target.value;
+
+    // Chỉ cho phép nhập số và tối đa 12 ký tự
+    if (/^\d{0,12}$/.test(value)) {
+      setForgotPhoneNumber(value);
+    }
+  };
+
+  const handleLogin = () => {
+    if (!phoneNumber) {
+      alert("Vui lòng nhập số điện thoại.");
+      return;
+    }
+    if (!password) {
+      alert("Vui lòng nhập mật khẩu.");
+      return;
+    }
+    alert("Đăng nhập thành công!");
   };
 
   // Xử lý hiển thị các bước quên mật khẩu
@@ -58,10 +93,12 @@ const Login: React.FC<{ switchToRegister: () => void }> = ({
             </div>
             <input
               type="text"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              value={forgotPhoneNumber}
+              onChange={handleForgotPhoneNumberChange}
+              maxLength={12}
+              inputMode="numeric"
               placeholder="Số điện thoại"
-              className="w-full rounded-[32px] text-text-muted text-[16px] mt-12 py-3 px-8 border-2 outline-none transition duration-300 focus:shadow-custom-shadow-inp"
+              className="w-full rounded-[32px] text-text-muted text-[16px] mt-8 py-3 px-8 border-2 outline-none transition duration-300 focus:shadow-custom-shadow-inp"
             />
             <button
               onClick={handleNextStep}
@@ -83,13 +120,9 @@ const Login: React.FC<{ switchToRegister: () => void }> = ({
                 0728398422
               </div>
             </div>
-            <input
-              type="text"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-              placeholder="Mã OTP (4 chữ số)"
-              className="w-full rounded-[32px] text-text-muted text-[16px] mt-12 py-3 px-8 border-2 outline-none transition duration-300 focus:shadow-custom-shadow-inp"
-            />
+            <div className="mt-6 center">
+              <OTPInput otp={otp} setOtp={setOtp} />
+            </div>
             <button
               onClick={handleNextStep}
               className="w-full rounded-[32px] text-white text-[16px] py-4 bg-bg-alt1 mt-4"
@@ -115,7 +148,7 @@ const Login: React.FC<{ switchToRegister: () => void }> = ({
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 placeholder="Nhập mật khẩu mới"
-                className="w-full rounded-[32px] text-text-muted text-[16px] mt-12 py-3 px-8 border-2 outline-none transition duration-300 focus:shadow-custom-shadow-inp"
+                className="w-full rounded-[32px] text-text-muted text-[16px] mt-8 py-3 px-8 border-2 outline-none transition duration-300 focus:shadow-custom-shadow-inp"
               />
             </div>
             <div>
@@ -137,7 +170,7 @@ const Login: React.FC<{ switchToRegister: () => void }> = ({
         );
       case 4: // Bước 4: Thành công
         return (
-          <div className="text-center space-y-4 flex flex-col gap-5 mt-[-40px]">
+          <div className="text-center space-y-4 flex flex-col gap-5 mt-6">
             <div className="w-[230px] h-[230px] border-2 m-auto rounded-[32px] center shadow-custom-shadow flex flex-col gap-6">
               <img src={successIcon}></img>
               <h2 className="text-[20px] font-medium leading-tight text-success">
@@ -160,7 +193,7 @@ const Login: React.FC<{ switchToRegister: () => void }> = ({
   };
 
   return (
-    <div className="w-full h-[100dvh] px-6 pb-8 flex flex-col">
+    <div className="w-full px-6 pb-8">
       {/* Nút quay lại */}
       {forgotPasswordStep > 0 && (
         <button
@@ -171,44 +204,57 @@ const Login: React.FC<{ switchToRegister: () => void }> = ({
         </button>
       )}
 
-      <img src={logo} className="w-[160px] h-[160px] m-auto mt-12"></img>
+      <img src={logo} className="w-[150px] h-[150px] m-auto mt-8"></img>
 
       {/* Giao diện đăng nhập hoặc quên mật khẩu */}
       {forgotPasswordStep === 0 ? (
         <>
-          <div className="flex flex-col gap-1 mt-[50px]">
+          <div className="flex flex-col gap-1 mt-[40px]">
             <h2 className="font-bold text-[24px] text-[#555555]">Đăng nhập</h2>
             <div className="font-light text-[15px] text-text-muted">
               Nhập số điện thoại và mật khẩu để đăng nhập
             </div>
           </div>
-          <form>
-            <div className="mt-12">
-              <input
-                type="text"
-                placeholder="Số điện thoại"
-                className="w-full rounded-[32px] text-text-muted text-[16px] py-3 px-8 border-2 outline-none transition duration-300 focus:shadow-custom-shadow-inp"
-              />
-            </div>
-            <div className="mt-4">
-              <input
-                type="password"
-                placeholder="Mật khẩu"
-                className="w-full rounded-[32px] text-text-muted text-[16px] py-3 px-8 border-2 outline-none transition duration-300 focus:shadow-custom-shadow-inp"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full rounded-[32px] text-white text-[16px] py-4 bg-bg-alt1 mt-4 cursor-pointer"
-            >
-              Đăng nhập
-            </button>
-          </form>
+          <div className="mt-12">
+            <input
+              type="text"
+              value={phoneNumber}
+              onChange={handlePhoneNumberChange}
+              placeholder="Số điện thoại"
+              maxLength={12}
+              inputMode="numeric"
+              className="w-full rounded-[32px] text-text-muted text-[16px] py-3 px-8 border-2 outline-none transition duration-300 focus:shadow-custom-shadow-inp"
+            />
+          </div>
+          <div className="mt-4">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Mật khẩu"
+              className="w-full rounded-[32px] text-text-muted text-[16px] py-3 px-8 border-2 outline-none transition duration-300 focus:shadow-custom-shadow-inp"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full rounded-[32px] text-white text-[16px] py-4 bg-bg-alt1 mt-4 cursor-pointer"
+            onClick={handleLogin}
+          >
+            Đăng nhập
+          </button>
           <div className="flex justify-between text-text-muted mt-4 cursor-pointer">
-            <div onClick={() => setForgotPasswordStep(1)}>Quên mật khẩu?</div>
+            <div
+              className="hover:underline"
+              onClick={() => setForgotPasswordStep(1)}
+            >
+              Quên mật khẩu?
+            </div>
             <div>
               <span>Bạn chưa có tài khoản? </span>
-              <button onClick={switchToRegister} className="text-bg-alt1">
+              <button
+                onClick={switchToRegister}
+                className="text-bg-alt1 hover:underline"
+              >
                 Đăng ký ngay
               </button>
             </div>
@@ -217,7 +263,7 @@ const Login: React.FC<{ switchToRegister: () => void }> = ({
       ) : (
         renderForgotPasswordSteps()
       )}
-      <div className="text-text-muted font-light text-[11px] mt-auto">
+      <div className="text-text-muted font-light text-[11px] mt-6">
         Bằng việc tiếp tuc, bạn đã đọc và đồng ý với điều khoản sử dụng và Chính
         sách bảo mật thông tin cá nhân của Vimall
       </div>

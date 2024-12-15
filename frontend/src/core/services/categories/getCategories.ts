@@ -56,6 +56,7 @@ export const getDetailCategory = async (id: string) => {
   const response = await connectAPI<APIResponse<Category>>('GET',url);
   const categories = response.data.list
   validateNonEmptyArray(categories, 'danh mục')
+  console.log(categories)
   return categories
 };
 

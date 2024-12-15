@@ -13,6 +13,6 @@ export interface Product {
     list_attribute: string;
     rating: number;
     active: boolean;
-    stock_product: number;
+    total_stock: number;
     category_id: number;
   }
