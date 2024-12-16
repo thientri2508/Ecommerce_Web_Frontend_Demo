@@ -60,7 +60,7 @@ const ProductDetail = () => {
 
         <div className="w-full mt-5 flex justify-between">
           <div className="w-[37%] bg-bg rounded-[16px] flex items-center gap-10 px-[20px] py-6">
-            {product?.id_store && <StoreInfo id={product?.id_store} />}
+            <StoreInfo />
           </div>
           <div className="w-[61.5%] bg-bg rounded-[16px] px-[24px] py-6">
             <ProductVoucher />
@@ -79,11 +79,11 @@ const ProductDetail = () => {
             <ProductFeedback />
           </div>
           <div className="w-[18%] bg-white rounded-[16px]">
-            {product?.id_store && <StoreProductList id_store={product?.id_store} />}
+            <StoreProductList />
           </div>
         </div>
         <div className="w-full bg-bg rounded-[16px] mt-10">
-          { product?.category_id && (<RelatedProducts category_id={product?.category_id} />)}
+          <RelatedProducts />
         </div>
       </div>
     </main>

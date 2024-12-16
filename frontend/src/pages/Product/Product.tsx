@@ -2,12 +2,12 @@ import { CategoryList } from "./widgets/CategoryList";
 import Filter from "./widgets/Filter";
 import Breadcrumb from "./widgets/Breadcrumb";
 import ProductList from "./widgets/ProductList";
-import ImageCarousel from "../../core/components/ImageCarousel/ImageCarousel";
+import banner10 from "../../core/assets/banner/banner10.png"
 import { useEffect, useState } from "react";
 import Modal from "./widgets/Modal/Modal";
 import { HeadingCategory } from "./widgets/HeadingCategory";
 import { useLocation } from "react-router-dom";
-import { banner_slide_product } from "../../core/constants/constants.typeImage";
+import Banner from "../../core/components/Banner/Banner";
 
 const Product = () => {
 
@@ -34,7 +34,7 @@ const Product = () => {
       <div className="w-full md:max-w-[1340px] m-auto pt-8">
         <Breadcrumb />
         <div className="h-[220px] mt-8">
-          <ImageCarousel name={banner_slide_product} />
+          <Banner name={banner10} />
         </div>
 
         <div className="flex justify-between items-start gap-5 mt-8">

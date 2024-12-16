@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CheckPhoneNumber, UserRegister } from "../../services/user/Auth";
 import { useAuth } from "../../context/AuthContext";
 import { User } from "../../types/User";
+import { useNavigate } from "react-router-dom";
 
 export const useRegister = () => {
   const [step, setStep] = useState(1); // Bước hiện tại: 1 -> Số điện thoại, 2 -> OTP, 3 -> Mật khẩu
@@ -13,6 +14,7 @@ export const useRegister = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleNextStep = async () => {
     if (step === 1) {
@@ -64,8 +66,9 @@ export const useRegister = () => {
         return;
       }
 
-      const response = await UserRegister(username, phoneNumber, password);
-      login(response as User);
+      //const response = await UserRegister(username, phoneNumber, password);
+      //login(response as User);
+      navigate("/");
 
       setErrorMessage("");
       resetForm();

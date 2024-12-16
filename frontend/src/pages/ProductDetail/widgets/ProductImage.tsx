@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Image } from "antd";
 import { ImageProduct } from "../../../core/types/ImageProduct";
+import { ProductImageData } from "../../../core/mockData/productData";
 
 interface ProductImageProps {
   images?: string;
@@ -10,7 +11,8 @@ interface ProductImageProps {
 
 const ProductImage: React.FC<ProductImageProps> = ({ images, logo_product }) => {
 
-  const image_list = images ? JSON.parse(images) : [];
+  //const image_list = images ? JSON.parse(images) : [];
+  const image_list = ProductImageData
 
   const [startIndex, setStartIndex] = useState(0); // Chỉ mục của item đầu tiên
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null); // Chỉ mục của item được chọn

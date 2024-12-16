@@ -7,12 +7,12 @@ import { Product } from "../../../core/types/Product";
 import ProductListLoading from "../../Product/widgets/ProductListLoading";
 import { FaArrowRight } from "react-icons/fa6";
 
-const RelatedProducts = ({ category_id }: { category_id: number }) => {
+const RelatedProducts = () => {
   const [searchParams] = useSearchParams();
   const id_product = searchParams.get("id");
 
   const { data, isLoading, error } = useProductsByCategory({
-    category_id,
+    category_id: 1,
     page: 1,
     page_size: 15,
   });
@@ -30,7 +30,7 @@ const RelatedProducts = ({ category_id }: { category_id: number }) => {
         Sản phẩm liên quan
       </div>
       <div className="flex flex-wrap gap-1 md:gap-4 mt-10 md:ml-[8px]">
-        {data?.list?.map((product: Product) =>
+        {data?.list?.slice(0, 10).map((product: Product) =>
           product.id === Number(id_product) ? null : (
             <CardProduct key={product.id} product={product} />
           )

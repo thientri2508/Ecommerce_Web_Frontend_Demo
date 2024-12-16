@@ -3,21 +3,25 @@ import { validateNonEmptyArray } from '../../utils/validation/arrayValidation';
 import connectAPI from '../../config/connectAPI';
 import { Category } from '../../types/Category';
 import { APIResponse } from '../../types/App';
+import { categoryByLevelData, categoryData } from '../../mockData/categoryData';
+import { RootCategoryData } from '../../mockData/RootCategoryData';
 
 // Hàm lấy tất cà danh mục
 export const getAllCategories = async () => {
-    const response = await connectAPI<APIResponse<Category>>('GET',`${API_ENDPOINTS.CATEGORIES}/get_category_menu_home`);
-    const categories = response.data.list
-    validateNonEmptyArray(categories, 'danh mục') 
+    // const response = await connectAPI<APIResponse<Category>>('GET',`${API_ENDPOINTS.CATEGORIES}/get_category_menu_home`);
+    // const categories = response.data.list
+    // validateNonEmptyArray(categories, 'danh mục') 
+    const categories = categoryData
     return categories
 }; 
 
 // Hàm lấy danh sách danh mục theo cấp
 export const getCategoriesByLevel = async (level: number) => {
-  const url = `${API_ENDPOINTS.CATEGORIES}/get_category_by_level?level_category=${level}`
-  const response = await connectAPI<APIResponse<Category>>('GET',url);
-  const categories = response.data.list
-  validateNonEmptyArray(categories, 'danh mục') 
+  // const url = `${API_ENDPOINTS.CATEGORIES}/get_category_by_level?level_category=${level}`
+  // const response = await connectAPI<APIResponse<Category>>('GET',url);
+  // const categories = response.data.list
+  // validateNonEmptyArray(categories, 'danh mục')
+  const categories = RootCategoryData
   return categories
 };
 
@@ -49,14 +53,15 @@ export const getCategoryById = async (id: string) => {
 
 // Hàm lấy danh sách các danh mục con của danh mục root cụ thể
 export const getDetailCategory = async (id: string) => {
-  if (!id) {
-    throw new Error("Danh sách danh mục không tồn tại");
-  }
-  const url = `${API_ENDPOINTS.CATEGORIES}/get_detail_category_page?level_category=2&p_id=${id}`
-  const response = await connectAPI<APIResponse<Category>>('GET',url);
-  const categories = response.data.list
-  validateNonEmptyArray(categories, 'danh mục')
-  console.log(categories)
+  // if (!id) {
+  //   throw new Error("Danh sách danh mục không tồn tại");
+  // }
+  // const url = `${API_ENDPOINTS.CATEGORIES}/get_detail_category_page?level_category=2&p_id=${id}`
+  // const response = await connectAPI<APIResponse<Category>>('GET',url);
+  // const categories = response.data.list
+  // validateNonEmptyArray(categories, 'danh mục')
+  // console.log(categories)
+  const categories = categoryByLevelData
   return categories
 };
 

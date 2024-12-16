@@ -83,7 +83,7 @@ const UserActions: React.FC = () => {
           </div>
         </li>
       ) : (
-        <li onClick={() => handleClick(ROUTES.ACCOUNT)}>
+        <li onClick={() => handleClick(ROUTES.LOGIN)}>
           <ul className="flex flex-col items-center gap-y-[5px] group perspective-1000">
             <li>
               <img

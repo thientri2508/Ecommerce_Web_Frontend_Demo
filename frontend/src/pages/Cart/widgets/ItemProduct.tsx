@@ -28,8 +28,8 @@ export const ItemProduct: React.FC<ItemProductProps> = ({
   const handleDeleteCart = () => {
     showModal("Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?", async () => {
       // Xử lý ở đây
-      await deleteItemCart(product?.id);
-      refetch();
+      //await deleteItemCart(product?.id);
+      //refetch();
     });
   };
 

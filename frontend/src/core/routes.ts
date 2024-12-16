@@ -47,12 +47,12 @@ export const routes: RouteType[] = [
     {
         path: ROUTES.CART,
         element: Cart,
-        isPrivate: true,
+        isPrivate: false,
     },
     {
         path: ROUTES.ACCOUNT,
         element: Account,
-        isPrivate: true,
+        isPrivate: false,
     },
     {
         path: ROUTES.LOGIN,

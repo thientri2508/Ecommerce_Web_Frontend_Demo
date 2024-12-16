@@ -1,4 +1,7 @@
 import banner8 from "../../core/assets/banner/banner8.png"
+import banner4 from "../../core/assets/banner/banner4.png"
+import banner10 from "../../core/assets/banner/banner10.png"
+import banner9 from "../../core/assets/banner/banner9.png"
 import ProductCarousel from "../../core/components/ProductCarousel/ProductCarousel"
 import ProductList from "../../core/components/ProductList/ProductList"
 import TopDeal from "./widgets/TopDeal"
@@ -9,7 +12,6 @@ import Banner from "../../core/components/Banner/Banner"
 import { useState, useEffect } from 'react';
 import ImageCarousel from "../../core/components/ImageCarousel/ImageCarousel"
 import { best_selling_product, favorite_product, new_product, suggested_product } from "../../core/constants/constants.statusProduct"
-import { banner_best_selling_product, banner_favourite_product, banner_slide, banner_suggested_product } from "../../core/constants/constants.typeImage"
 
 const Home = () => {
 
@@ -56,39 +58,23 @@ const Home = () => {
   return (
     <main className="w-full">
       <div className="w-full md:max-w-[1380px] m-auto pt-8">
-        {/* {loadedLists.includes(1) &&
-        <ul className="hidden md:flex gap-2 px-10">
-          <li><Tag text="Lorem ipsum dolor sit amet" /></li>
-          <li><Tag text="Lorem ipsum " /></li>
-          <li><Tag text="Lorem ipsum dolor" /></li>
-          <li><Tag text="Lorem ipsum dolor sit amet" /></li>
-        </ul>} */}
-
-        {/* {loadedLists.includes(1) &&
-        <div className="flex gap-5 mt-[-32px] md:mt-8 h-[200px] md:h-[425px] md:px-5 select-none">
-          <ImageCarousel images={DataImageCarousel} />
-          <div className="hidden lg:flex flex-col justify-between w-[23%]">
-            <img src={banner3} className="h-[70%] object-cover rounded-[24px]"></img>
-            <img src={banner2} className="h-[25%] object-cover rounded-[24px]"></img>
-          </div>
-        </div>} */}
 
         {loadedLists.includes(1) &&
         <div className="mt-[-32px] md:mt-8 h-[200px] md:h-[425px] md:px-5 select-none">
-          <ImageCarousel name={banner_slide} />
+          <ImageCarousel />
         </div>}
 
         {loadedLists.includes(1) && <CategoryList /> }
 
         {loadedLists.includes(1) && <FlashSale />}
 
-        {loadedLists.includes(2) && <Banner name={banner_best_selling_product} />}
+        {loadedLists.includes(2) && <Banner name={banner4} />}
 
         {loadedLists.includes(2) && <ProductList text="sản phẩm bán chạy" filter={{status_product: best_selling_product}} />}
 
         {loadedLists.includes(3) && <TopDeal setLoading={setLoading} />}
 
-        {loadedLists.includes(3) && <Banner name={banner_favourite_product} />}
+        {loadedLists.includes(3) && <Banner name={banner10} />}
 
         {loadedLists.includes(4) &&
           <div className="w-full mt-10 px-[10px] sm-:px-[20px] md:px-[60px] pt-4 md:pt-14 pb-[40px] md:pb-14 border-solid border-2 md:rounded-[30px]">
@@ -107,7 +93,7 @@ const Home = () => {
 
       <div className="max-w-[1380px] m-auto">
         {loadedLists.includes(5) && <ProductList text="sản phẩm mới" setLoading={setLoading} filter={{status_product: new_product}} />}
-        {loadedLists.includes(5) && <Banner name={banner_suggested_product} />}
+        {loadedLists.includes(5) && <Banner name={banner9} />}
         {loadedLists.includes(6) && <ProductList text="gợi ý hôm nay" setLoading={setLoading} filter={{status_product: suggested_product}} />}
       </div>
       

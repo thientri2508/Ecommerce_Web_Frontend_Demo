@@ -32,10 +32,10 @@ interface ProductListProps {
     const sortedData = React.useMemo(() => {
       if (!Array.isArray(data?.list)) return [];
       if (filterPrice === 1) {
-        return [...data.list].sort((a, b) => a.market_price - b.market_price); // Tăng dần
+        return [...data.list].sort((a, b) => a.listed_price - b.listed_price); // Tăng dần
       }
       if (filterPrice === 2) {
-        return [...data.list].sort((a, b) => b.market_price - a.market_price); // Giảm dần
+        return [...data.list].sort((a, b) => b.listed_price - a.listed_price); // Giảm dần
       }
       return [...data.list]; // Không sắp xếp
     }, [data?.list, filterPrice]);

@@ -16,7 +16,7 @@ const ListCategory = ({
       {categoriesLv2?.map((categoryLv2: Category) => {
         return (
           <div key={categoryLv2?.id} className="w-[calc(33.33%-56px)]">
-            <Link to={`${ROUTES.PRODUCTS}?idParent=${pId}&p_id=${categoryLv2?.id}`}>
+            <Link to={`${ROUTES.PRODUCTS}`}>
               <p className="text-category font-semibold text-text cursor-pointer hover:text-bg-alt1 transition-all duration-200">
                 {categoryLv2?.position_name}
               </p>
@@ -26,7 +26,7 @@ const ListCategory = ({
                 ?.filter((category: Category) => categoryLv2.id == category.p_id)
                 ?.map((categoryLv3: Category) => {
                   return (
-                    <Link to={`${ROUTES.PRODUCTS}?idParent=${pId}&idCategory=${categoryLv3?.id}`} key={categoryLv3?.id}>
+                    <Link to={`${ROUTES.PRODUCTS}`} key={categoryLv3?.id}>
                       <li className="hover:text-bg-alt1">
                         {categoryLv3?.position_name}
                       </li>

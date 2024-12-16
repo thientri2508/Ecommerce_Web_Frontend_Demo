@@ -7,14 +7,14 @@ import { useEffect } from "react";
 
 const Register = () => {
 
-  const { isAuthenticated } = useAuth();
-  const navigate = useNavigate();
+  // const { isAuthenticated } = useAuth();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/"); // Điều hướng đến Home nếu đã đăng nhập
-    }
-  }, [isAuthenticated, navigate]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     navigate("/"); 
+  //   }
+  // }, [isAuthenticated, navigate]);
 
   return (
     <main className="overflow-hidden">

@@ -4,12 +4,12 @@ import Spinner from "../../../core/components/Loading/Spinner";
 import { useProductsByStore } from "../../../core/hooks/products/useProducts";
 import { Product } from "../../../core/types/Product";
 
-export const StoreProductList = ({ id_store }: { id_store: number }) => {
+export const StoreProductList = () => {
   const {
     data: products,
     isLoading,
     error,
-  } = useProductsByStore({ id_store: id_store, page: 1, page_size: 5 });
+  } = useProductsByStore({ id_store: 1, page: 1, page_size: 5 });
 
   if (isLoading) return <Spinner />;
   if (error)

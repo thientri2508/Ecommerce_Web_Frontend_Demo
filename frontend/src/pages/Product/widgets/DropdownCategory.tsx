@@ -39,7 +39,7 @@ export const DropdownCategory = ({category} : {category: Category}) => {
         className="transition-all duration-300 overflow-hidden text-[14px]"
       >
         {subCategories?.map((subCategory: Category) => (
-          <Link to={`${ROUTES.PRODUCTS}?idParent=${idParent}&idCategory=${subCategory?.id}`} key={subCategory?.id}>
+          <Link to={`${ROUTES.PRODUCTS}`} key={subCategory?.id}>
             <li className={`hover:text-bg-alt1 pl-4 py-[8px] ${subCategory?.id == Number(idCategory) ? 'text-bg-alt1' : 'text-text'}`}>
               {subCategory?.position_name}
             </li>

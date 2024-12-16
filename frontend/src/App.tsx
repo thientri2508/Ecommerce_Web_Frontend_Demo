@@ -5,10 +5,9 @@ import { routes } from "./core/routes";
 import { ScrollToTop } from "react-router-scroll-to-top";
 import PrivateRoute from "./core/components/routes/PrivateRoute";
 import PublicRoute from "./core/components/routes/PublicRoute";
-import { useAuth } from "./core/context/AuthContext";
 
 function App() {
-  const { isAuthenticated } = useAuth();
+  const isAuthenticated = true;
 
   return (
     <BrowserRouter>

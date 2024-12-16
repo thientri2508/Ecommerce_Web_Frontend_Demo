@@ -39,12 +39,12 @@ const TopDeal: React.FC<TopDealProps> = ({ setLoading }) => {
                 <div><img src={banner2} className="w-full aspect-square md:w-[500px] md:h-[350px] object-cover"></img></div>
             </div>
             <div className="w-full lg+:w-[60%] flex flex-wrap gap-1 md:gap-4">
-              {products?.map((product: Product) => (
-                <CardProduct key={product.id} product={product} widthConfig="topdeal" />
-              ))}
-              {/* {products?.slice(0, 6).map((product: Product) => (
+              {/* {products?.map((product: Product) => (
                 <CardProduct key={product.id} product={product} widthConfig="topdeal" />
               ))} */}
+              {products?.slice(0, 6).map((product: Product) => (
+                <CardProduct key={product.id} product={product} widthConfig="topdeal" />
+              ))}
             </div>
         </div>
         <div className="center mt-10"><Button text="Xem thêm" icon={<FaArrowRight size={20} />} iconPosition="right" colorConfig="stroke" /></div>

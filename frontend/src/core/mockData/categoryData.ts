@@ -1,59 +1,256 @@
-import category1 from '../assets/category/thoitrangnam.png'
-import category2 from '../assets/category/thoitrangnu.png'
-import category3 from '../assets/category/dogiadung.png'
-import category4 from '../assets/category/thietbidientu.png'
-import category5 from '../assets/category/giaydepnam.png'
-import category6 from '../assets/category/giaydepnu.png'
-import category7 from '../assets/category/mebe.png'
-import category8 from '../assets/category/thethao.png'
-
 export const categoryData = [
     {
         id: 1,
-        position_name: "Thời trang nam",
+        level_category: 1,
         p_id: 0,
-        uri: category1,
-    },
-    {
-        id: 2,
-        position_name: "Thời trang nữ",
-        p_id: 0,
-        uri: category2,
-    },
-    {
-        id: 3,
-        position_name: "Đồ gia dụng",
-        p_id: 0,
-        uri: category3,
-    },
-    {
-        id: 4,
-        position_name: "Thiết bị điện tử",
-        p_id: 0,
-        uri: category4,
+        position_name: "Thời trang",
     },
     {
         id: 5,
-        position_name: "Giày dép nam",
-        p_id: 0,
-        uri: category5,
+        level_category: 2,
+        p_id: 1,
+        position_name: "Thời trang nam",
     },
     {
-        id: 6,
-        position_name: "Giày dép nữ",
-        p_id: 0,
-        uri: category6,
+        id: 27,
+        level_category: 3,
+        p_id: 5,
+        position_name: "Áo thun nam",
     },
     {
-        id: 7,
-        position_name: "Mẹ & Bé",
-        p_id: 0,
-        uri: category7,
+        id: 28,
+        level_category: 3,
+        p_id: 5,
+        position_name: "Áo sơ mi nam",
     },
     {
-        id: 8,
-        position_name: "Thể thao",
-        p_id: 0,
-        uri: category8,
+        id: 29,
+        level_category: 3,
+        p_id: 5,
+        position_name: "Quần dài nam",
+    },
+    {
+        id: 31,
+        level_category: 3,
+        p_id: 5,
+        position_name: "Áo khoác nam",
+    },
+    {
+        id: 37,
+        level_category: 2,
+        p_id: 1,
+        position_name: "Thời trang nữ",
+    },
+    {
+        id: 38,
+        level_category: 2,
+        p_id: 1,
+        position_name: "Thời trang trẻ em",
+    },
+    {
+        id: 39,
+        level_category: 3,
+        p_id: 37,
+        position_name: "Đầm nữ",
+    },
+    {
+        id: 40,
+        level_category: 3,
+        p_id: 37,
+        position_name: "Chân váy",
+    },
+    {
+        id: 41,
+        level_category: 3,
+        p_id: 37,
+        position_name: "Thời trang bầu và sau sinh",
+    },
+    {
+        id: 42,
+        level_category: 3,
+        p_id: 37,
+        position_name: "Thời trang nữ trung niên",
+    },
+    {
+        id: 43,
+        level_category: 3,
+        p_id: 37,
+        position_name: "Đồ ngủ - Đồ mặc nhà nữ",
+    },
+    {
+        id: 44,
+        level_category: 3,
+        p_id: 37,
+        position_name: "Trang phục bơi nữ",
+    },
+    {
+        id: 45,
+        level_category: 3,
+        p_id: 38,
+        position_name: "Váy bé gái",
+    },
+    {
+        id: 46,
+        level_category: 3,
+        p_id: 38,
+        position_name: "Quần bé gái",
+    },
+    {
+        id: 47,
+        level_category: 3,
+        p_id: 38,
+        position_name: "Áo thun bé trai",
+    },
+    {
+        id: 48,
+        level_category: 3,
+        p_id: 38,
+        position_name: "Nón trẻ em",
+    },
+    {
+        id: 71,
+        level_category: 2,
+        p_id: 1,
+        position_name: "Giày - Dép Nam",
+    },
+    {
+        id: 72,
+        level_category: 2,
+        p_id: 1,
+        position_name: "Giày - Dép Nữ",
+    },
+    {
+        id: 73,
+        level_category: 3,
+        p_id: 71,
+        position_name: "Giày Lười Nam",
+    },
+    {
+        id: 74,
+        level_category: 3,
+        p_id: 71,
+        position_name: "Giày Tây Nam",
+    },
+    {
+        id: 76,
+        level_category: 3,
+        p_id: 71,
+        position_name: "Giày Boots Nam",
+    },
+    {
+        id: 77,
+        level_category: 3,
+        p_id: 71,
+        position_name: "Giày Thể Thao Nam",
+    },
+    {
+        id: 78,
+        level_category: 3,
+        p_id: 37,
+        position_name: "Đồ lót nữ",
+    },
+    {
+        id: 100,
+        level_category: 3,
+        p_id: 5,
+        position_name: "Áo đông",
+    },
+    {
+        id: 121,
+        level_category: 2,
+        p_id: 5,
+        position_name: "Áo Vest và Blazer",
+    },
+    {
+        id: 122,
+        level_category: 3,
+        p_id: 72,
+        position_name: "Giày cao gót",
+    },
+    {
+        id: 123,
+        level_category: 3,
+        p_id: 72,
+        position_name: "Giày đế cao",
+    },
+    {
+        id: 124,
+        level_category: 3,
+        p_id: 72,
+        position_name: "Giày búp bê",
+    },
+    {
+        id: 125,
+        level_category: 3,
+        p_id: 72,
+        position_name: "Dép cao su",
+    },
+    {
+        id: 126,
+        level_category: 2,
+        p_id: 1,
+        position_name: "Phụ kiện thời trang",
+    },
+    {
+        id: 127,
+        level_category: 3,
+        p_id: 126,
+        position_name: "Thắt lưng nam - nữ",
+    },
+    {
+        id: 128,
+        level_category: 3,
+        p_id: 126,
+        position_name: "Ví da",
+    },
+    {
+        id: 129,
+        level_category: 3,
+        p_id: 126,
+        position_name: "Túi xách",
+    },
+    {
+        id: 130,
+        level_category: 3,
+        p_id: 126,
+        position_name: "Mũ nón",
+    }
+]
+
+export const categoryByLevelData = [
+    {
+        id: 5,
+        json_cate: '[{"id":27,"p_id":5,"position_name":"Áo thun nam","level_category":3},{"id":31,"p_id":5,"position_name":"Áo khoác nam","level_category":3},{"id":100,"p_id":5,"position_name":"Áo đông","uri":"1732179618733-image.png","level_category":3},{"id":121,"p_id":5,"position_name":"Áo Vest và Blazer","level_category":2}]',
+        level_category: 2,
+        p_id: 1,
+        position_name: "Thời trang nam",
+    },
+    {
+        id: 37,
+        json_cate: '[{"id":39,"p_id":37,"position_name":"Đầm nữ","uri":"1731747061475-image.png","level_category":3},{"id":40,"p_id":37,"position_name":"Chân váy","uri":"1731747185311-image.png","level_category":3},{"id":41,"p_id":37,"position_name":"Thời trang bầu và sau sinh","uri":"1731747231082-image.png","level_category":3},{"id":42,"p_id":37,"position_name":"Thời trang nữ trung niên","uri":"1731747254699-image.png","level_category":3},{"id":43,"p_id":37,"position_name":"Đồ ngủ - Đồ mặc nhà nữ","uri":"1731747281706-image.png","level_category":3},{"id":44,"p_id":37,"position_name":"Trang phục bơi nữ","uri":"1731747296370-image.png","level_category":3},{"id":78,"p_id":37,"position_name":"Đồ lót nữ","uri":"1732000447348-image.png","level_category":3}]',
+        level_category: 2,
+        p_id: 1,
+        position_name: "Thời trang nữ",
+    },
+    {
+        id: 38,
+        json_cate: '[{"id":46,"p_id":38,"position_name":"Quần bé gái","uri":"1731747863139-image.png","level_category":3},{"id":47,"p_id":38,"position_name":"Áo thun bé trai","uri":"1731747875985-image.png","level_category":3},{"id":48,"p_id":38,"position_name":"Nón trẻ em","uri":"1731747899544-image.png","level_category":3}]',
+        level_category: 2,
+        p_id: 1,
+        position_name: "Thời trang trẻ em",
+    },
+    {
+        id: 71,
+        json_cate: '[{"id":73,"p_id":71,"position_name":"Giày Lười Nam","uri":"1732000018453-image.png","level_category":3},{"id":74,"p_id":71,"position_name":"Giày Tây Nam","uri":"1732000023155-image.png","level_category":3},{"id":76,"p_id":71,"position_name":"Giày Boots Nam","uri":"1732000071596-image.png","level_category":3},{"id":77,"p_id":71,"position_name":"Giày Thể Thao Nam","uri":"1732000304428-image.png","level_category":3}]',
+        level_category: 2,
+        p_id: 1,
+        position_name: "Giày - Dép Nam",
+    },
+    {
+        id: 72,
+        json_cate: '[{"id":122,"p_id":72,"position_name":"Giày cao gót","level_category":3}]',
+        level_category: 2,
+        p_id: 1,
+        position_name: "Giày - Dép Nữ",
     }
 ]

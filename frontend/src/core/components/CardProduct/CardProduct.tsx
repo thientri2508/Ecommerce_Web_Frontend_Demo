@@ -38,7 +38,7 @@ const CardProduct: React.FC<CardProductProps> = ({
 
   return (
     <Link
-      to={`${ROUTES.PRODUCT_DETAIL}?id=${product?.id}`}
+      to={`${ROUTES.PRODUCT_DETAIL}`}
       className={`${widthClasses} bg-bg border-solid border-[0.7px] border-[#DEDEDE] overflow-hidden rounded-[16px] p-4 flex flex-col gap-[10px] relative group cursor-pointer`}
     >
       <div className="absolute w-[36px] h-[36px] bg-bg-alt1 top-[22px] right-[22px] rounded-[50%] cursor-pointer center opacity-0 group-hover:opacity-100 transition-all duration-300">

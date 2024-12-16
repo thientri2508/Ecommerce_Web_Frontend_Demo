@@ -8,12 +8,6 @@ import { useRegister } from "../../core/hooks/user/useRegister";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
 const RegisterForm = () => {
-  // const [step, setStep] = useState(1); // Bước hiện tại: 1 -> Số điện thoại, 2 -> OTP, 3 -> Mật khẩu
-  // const [phoneNumber, setPhoneNumber] = useState("");
-  // const [otp, setOtp] = useState<string[]>(Array(4).fill(""));
-  // const [password, setPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
-  // const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -35,69 +29,6 @@ const RegisterForm = () => {
       setPhoneNumber(value);
     }
   };
-
-  // // Hàm xử lý chuyển bước
-  // const handleNextStep = async () => {
-  //   if (step === 1) {
-  //     // Kiểm tra số điện thoại hợp lệ
-  //     if (!phoneNumber) {
-  //       setErrorMessage("Vui lòng nhập số điện thoại.");
-  //       return;
-  //     }
-
-  //     const isExists = await CheckPhoneNumber(phoneNumber);
-
-  //     if (isExists.success) {
-  //       setErrorMessage("Số điện thoại đã tồn tại.");
-  //       return false;
-  //     }
-  //     setErrorMessage("");
-  //     setStep(2);
-  //   } else if (step === 2) {
-  //     // Kiểm tra mã OTP hợp lệ
-  //     if (!otp.every((digit) => digit !== "")) {
-  //       setErrorMessage("Vui lòng nhập mã OTP.");
-  //       return;
-  //     }
-  //     if (otp.join("") !== "1234") {
-  //       setErrorMessage("Mã OTP không chính xác.");
-  //       return;
-  //     }
-  //     // Giả sử OTP hợp lệ và chuyển sang bước 3
-  //     setErrorMessage("");
-  //     setStep(3);
-  //   } else if (step === 3) {
-  //     // Kiểm tra mật khẩu và xác nhận mật khẩu
-  //     if (!password || !confirmPassword) {
-  //       setErrorMessage("Vui lòng nhập mật khẩu và xác nhận mật khẩu.");
-  //       return;
-  //     }
-  //     if (password.length < 8 || password.length > 32) {
-  //       setErrorMessage("Mật khẩu phải dài từ 8-32 kí tự.");
-  //       return;
-  //     }
-  //     if (password !== confirmPassword) {
-  //       setErrorMessage("Mật khẩu và xác nhận mật khẩu không khớp.");
-  //       return;
-  //     }
-
-  //     const response = await UserRegister(phoneNumber, password)
-  //     login(response as User);
-
-  //     // Giả sử đăng ký thành công
-  //     setErrorMessage("");
-  //     setPhoneNumber("");
-  //     setOtp([]);
-  //     setPassword("");
-  //     setConfirmPassword("");
-  //     setStep(1);
-  //   }
-  // };
-
-  // // Hàm quay lại bước trước
-  // const handleBackStep = () => {
-  //   setStep(step - 1);
-  // };
 
   const {
     step,

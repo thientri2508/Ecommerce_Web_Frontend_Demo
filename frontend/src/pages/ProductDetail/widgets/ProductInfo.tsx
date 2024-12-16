@@ -94,35 +94,48 @@ const ProductInfo = ({ product }: { product: Product }) => {
   };
 
   const addToCart = async () => {
-    if (isAuthenticated && user?.id) {
-      if (titleAttribute1 && !selectedAttr1) {
-        setErrorMessage("Vui lòng chọn đầy đủ thông tin sản phẩm");
-        return;
-      }
-      if (titleAttribute2 && !selectedAttr2) {
-        setErrorMessage("Vui lòng chọn đầy đủ thông tin sản phẩm");
-        return;
-      }
-      const response = await AddToCart(
-        user?.id,
-        attributeProduct?.id,
-        quantity
-      );
-      if (response?.success) {
-        messageApi.open({
-          type: "success",
-          content: "Thêm sản phẩm vào giỏ hàng thành công",
-        });
-      } else {
-        messageApi.open({
-          type: "error",
-          content: "Không thể thêm sản phẩm vào giỏ hàng",
-        });
-      }
-      setErrorMessage("");
-    } else {
-      navigate("/login");
+    // if (isAuthenticated && user?.id) {
+    //   if (titleAttribute1 && !selectedAttr1) {
+    //     setErrorMessage("Vui lòng chọn đầy đủ thông tin sản phẩm");
+    //     return;
+    //   }
+    //   if (titleAttribute2 && !selectedAttr2) {
+    //     setErrorMessage("Vui lòng chọn đầy đủ thông tin sản phẩm");
+    //     return;
+    //   }
+    //   const response = await AddToCart(
+    //     user?.id,
+    //     attributeProduct?.id,
+    //     quantity
+    //   );
+    //   if (response?.success) {
+    //     messageApi.open({
+    //       type: "success",
+    //       content: "Thêm sản phẩm vào giỏ hàng thành công",
+    //     });
+    //   } else {
+    //     messageApi.open({
+    //       type: "error",
+    //       content: "Không thể thêm sản phẩm vào giỏ hàng",
+    //     });
+    //   }
+    //   setErrorMessage("");
+    // } else {
+    //   navigate("/login");
+    // }
+    if (titleAttribute1 && !selectedAttr1) {
+      setErrorMessage("Vui lòng chọn đầy đủ thông tin sản phẩm");
+      return;
     }
+    if (titleAttribute2 && !selectedAttr2) {
+      setErrorMessage("Vui lòng chọn đầy đủ thông tin sản phẩm");
+      return;
+    }
+    messageApi.open({
+      type: "success",
+      content: "Thêm sản phẩm vào giỏ hàng thành công",
+    });
+    setErrorMessage("");
   };
 
   useEffect(() => {

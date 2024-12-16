@@ -23,39 +23,32 @@ export const SubHeader = () => {
 
   if (isLoading) return <LoadingComponent />;
 
-  if (error) return <ErrorFallback message={error instanceof Error ? error.message : 'Lỗi từ máy chủ'} />;
+  if (error)
+    return (
+      <ErrorFallback
+        message={error instanceof Error ? error.message : "Lỗi từ máy chủ"}
+      />
+    )
 
   return (
     <div className="max-w-[1400px] m-auto flex justify-between py-[14px] pl-8 pr-12 gap-[70px]">
       <ul className="mt-[4px]">
-        {categories
-          ?.filter(
-            (category: Category) =>
-              category.p_id === 0 && // Lọc danh mục gốc
-              categories.some((subCategory: Category) => subCategory.p_id === category.id) // Chỉ giữ danh mục có chứa danh mục con
-          )
-          ?.map((category: Category) => (
-            <Link key={category.id} to={`${ROUTES.CATEGORIES}?id=${category?.id}`}>
-              <li
-                onMouseEnter={() => {
-                  setPid(category.id);
-                }}
-                style={{
-                  backgroundColor: pId === category.id ? "#FFFCE1" : "transparent",
-                  transition: "background-color 0.3s",
-                }}
-              >
-                <RootCategory category={category} />
-              </li>
-            </Link>
-        ))}
+        <RootCategory category_name='Thời trang' />
+        <RootCategory category_name='Thời trang' />
+        <RootCategory category_name='Thời trang' />
+        <RootCategory category_name='Thời trang' />
+        <RootCategory category_name='Thời trang' />
+        <RootCategory category_name='Thời trang' />
+        <RootCategory category_name='Thời trang' />
       </ul>
 
       <ListCategory
-          categoriesLv2={categories?.filter((category: Category) => pId === category.p_id)}
-          categories={categories}
-          pId={pId}
-        />
+        categoriesLv2={categories?.filter(
+          (category: Category) => pId === category.p_id
+        )}
+        categories={categories}
+        pId={pId}
+      />
 
       <div className="mt-8">
         <ul className="flex flex-col gap-5 items-center">
