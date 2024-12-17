@@ -42,7 +42,7 @@ const TopDeal: React.FC<TopDealProps> = ({ setLoading }) => {
               {/* {products?.map((product: Product) => (
                 <CardProduct key={product.id} product={product} widthConfig="topdeal" />
               ))} */}
-              {products?.slice(0, 6).map((product: Product) => (
+              {Array.isArray(products) &&  products?.slice(0, 6).map((product: Product) => (
                 <CardProduct key={product.id} product={product} widthConfig="topdeal" />
               ))}
             </div>

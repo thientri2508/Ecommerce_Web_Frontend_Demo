@@ -19,7 +19,7 @@ export const useAllCategories = () =>
 export const useCategoriesByLevel = (level: number) => 
   useQuery({
     queryKey: ['categories', level],
-    queryFn: () => getCategoriesByLevel(level),
+    queryFn: () => getCategoriesByLevel(),
 });
 
 // Hook lấy danh sách các danh mục con của 1 danh mục cha cụ thể
@@ -33,7 +33,7 @@ export const useCategoriesChildren = (id: string) =>
 export const useDetailCategory = (id: string) => 
   useQuery({
     queryKey: ['DetailCategory', id],
-    queryFn: () => getDetailCategory(id),
+    queryFn: () => getDetailCategory(),
 });
 
 // Hook lấy thông tin chi tiết 1 danh mục

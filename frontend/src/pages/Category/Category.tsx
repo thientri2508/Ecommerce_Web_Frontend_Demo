@@ -7,7 +7,6 @@ import ProductList from "../../core/components/ProductList/ProductList"
 import { useLocation } from "react-router-dom"
 import { useEffect } from "react"
 import { best_selling_product, favorite_product } from "../../core/constants/constants.statusProduct"
-import { banner_slide_category } from "../../core/constants/constants.typeImage"
 
 const Category = () => {
 
@@ -24,7 +23,7 @@ const Category = () => {
     <main className="w-full pb-10">
       <div className="w-full md:max-w-[1380px] m-auto pt-8">
         <div className="h-[300px] mt-8">
-          <ImageCarousel name={banner_slide_category} />
+          <ImageCarousel />
         </div>
         <CategoryList />
 

@@ -14,7 +14,6 @@ export const DropdownCategory = ({category} : {category: Category}) => {
   const [searchParams] = useSearchParams();
   const idCategory = searchParams.get('idCategory');
   const p_id = searchParams.get('p_id');
-  const idParent = searchParams.get('idParent'); 
 
   useEffect(() => {
     if (listRef.current) {

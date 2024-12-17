@@ -16,7 +16,7 @@ export const getAllCategories = async () => {
 }; 
 
 // Hàm lấy danh sách danh mục theo cấp
-export const getCategoriesByLevel = async (level: number) => {
+export const getCategoriesByLevel = async () => {
   // const url = `${API_ENDPOINTS.CATEGORIES}/get_category_by_level?level_category=${level}`
   // const response = await connectAPI<APIResponse<Category>>('GET',url);
   // const categories = response.data.list
@@ -52,7 +52,7 @@ export const getCategoryById = async (id: string) => {
 };
 
 // Hàm lấy danh sách các danh mục con của danh mục root cụ thể
-export const getDetailCategory = async (id: string) => {
+export const getDetailCategory = async () => {
   // if (!id) {
   //   throw new Error("Danh sách danh mục không tồn tại");
   // }

@@ -1,11 +1,7 @@
-import { API_ENDPOINTS } from "../../config/apiConfig";
-import { APIResponse } from "../../types/App";
-import { Product } from "../../types/Product";
-import connectAPI from "../../config/connectAPI";
 import { DetailProductData } from "../../mockData/productData";
 
 // Hàm gọi API lấy chi tiết sản phẩm
-export const getProductById = async (id: string) => {
+export const getProductById = async () => {
   // if (!id) {
   //   throw new Error("Sản phẩm không tồn tại");
   // }

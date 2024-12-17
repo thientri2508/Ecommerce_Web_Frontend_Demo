@@ -1,9 +1,3 @@
-import queryString from 'query-string';
-import { API_ENDPOINTS } from '../../config/apiConfig';
-import { validateNonEmptyArray } from '../../utils/validation/arrayValidation';
-import connectAPI from '../../config/connectAPI';
-import { Product } from '../../types/Product';
-import { APIResponse } from '../../types/App';
 import { productData, productDataByCategory, ProductStoreData } from '../../mockData/productData';
 
 // Định nghĩa kiểu dữ liệu cho tham số lọc
@@ -16,7 +10,7 @@ export interface ProductParams {
   status_product?: string;
 }
 
-export const getProductsByStatus = async (params: ProductParams) => {
+export const getProductsByStatus = async () => {
   // const query = params ? queryString.stringify(params) : '';
   // const url = `${API_ENDPOINTS.PRODUCTS}/get-product-filter?${query}`; 
   // const response = await connectAPI<APIResponse<Product>>('GET', url);
@@ -31,7 +25,7 @@ export const getProductsByStatus = async (params: ProductParams) => {
   });
 };
 
-export const getProductsByCategory = async (params: ProductParams) => {
+export const getProductsByCategory = async () => {
     // const body = {
     //   "page": params?.page,
     //   "page_size": params?.page_size,
@@ -50,7 +44,7 @@ export const getProductsByCategory = async (params: ProductParams) => {
     });
 };
 
-export const getProductsByStore = async (params: ProductParams) => {
+export const getProductsByStore = async () => {
   // const body = {
   //   page: params?.page,
   //   page_size: params?.page_size,

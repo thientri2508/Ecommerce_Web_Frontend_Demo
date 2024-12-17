@@ -1,9 +1,6 @@
 import banner from "../../core/assets/banner/logo.png";
 import { motion } from "framer-motion";
 import RegisterForm from "./RegisterForm";
-import { useAuth } from "../../core/context/AuthContext";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 const Register = () => {
 

@@ -168,9 +168,8 @@ export const ProductStoreData = [
     }
 ];
 
-export const productDataByCategory = {
-    total: 100,
-    list:
+
+export const productDataByCategory = 
     [
         {
             id: 1,
@@ -313,7 +312,6 @@ export const productDataByCategory = {
             logo_product: logoProduct,
         },
 ]
-}
 
 export const DetailProductData = 
     {

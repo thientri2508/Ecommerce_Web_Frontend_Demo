@@ -1,12 +1,8 @@
 import { useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-import { UserLogin } from "../../services/user/Auth";
-import { User } from "../../types/User";
 import { useNavigate } from "react-router-dom";
 
 export const useLogin = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = async (phoneNumber: string, password: string) => {

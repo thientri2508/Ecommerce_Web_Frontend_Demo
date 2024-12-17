@@ -47,7 +47,6 @@ const ProductDetail = () => {
             </div>
 
             <ProductImage
-              images={product?.list_image}
               logo_product={product?.logo_product}
             />
             <ShippingInfo />

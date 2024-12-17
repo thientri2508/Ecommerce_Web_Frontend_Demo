@@ -7,29 +7,12 @@ import brand4 from "../../assets/logo/brand4.png";
 import brand5 from "../../assets/logo/brand5.png";
 import brand6 from "../../assets/logo/brand6.png";
 import brand7 from "../../assets/logo/brand7.png";
-import { useAllCategories } from "../../hooks/categories/useCategories";
-import LoadingComponent from "../Loading/Spinner";
 import { Category } from "../../types/Category";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ROUTES } from "../../constants/constants.router";
-import ErrorFallback from "../ErrorFallback/ErrorFallback";
+import { categoryData } from "../../mockData/categoryData";
 
 const brands = [brand1, brand2, brand3, brand4, brand5, brand6, brand7];
 
 export const SubHeader = () => {
-  const { data: categories, isLoading, error } = useAllCategories();
-  const [pId, setPid] = useState<number>(1);
-
-  if (isLoading) return <LoadingComponent />;
-
-  if (error)
-    return (
-      <ErrorFallback
-        message={error instanceof Error ? error.message : "Lỗi từ máy chủ"}
-      />
-    )
-
   return (
     <div className="max-w-[1400px] m-auto flex justify-between py-[14px] pl-8 pr-12 gap-[70px]">
       <ul className="mt-[4px]">
@@ -43,11 +26,9 @@ export const SubHeader = () => {
       </ul>
 
       <ListCategory
-        categoriesLv2={categories?.filter(
-          (category: Category) => pId === category.p_id
+        categoriesLv2={categoryData?.filter(
+          (category: Category) => 2 === category.level_category
         )}
-        categories={categories}
-        pId={pId}
       />
 
       <div className="mt-8">

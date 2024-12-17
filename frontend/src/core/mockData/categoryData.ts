@@ -156,12 +156,6 @@ export const categoryData = [
         position_name: "Áo đông",
     },
     {
-        id: 121,
-        level_category: 2,
-        p_id: 5,
-        position_name: "Áo Vest và Blazer",
-    },
-    {
         id: 122,
         level_category: 3,
         p_id: 72,

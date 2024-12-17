@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { CheckPhoneNumber, UserRegister } from "../../services/user/Auth";
-import { useAuth } from "../../context/AuthContext";
-import { User } from "../../types/User";
+import { CheckPhoneNumber } from "../../services/user/Auth";
 import { useNavigate } from "react-router-dom";
 
 export const useRegister = () => {
@@ -13,7 +11,6 @@ export const useRegister = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleNextStep = async () => {

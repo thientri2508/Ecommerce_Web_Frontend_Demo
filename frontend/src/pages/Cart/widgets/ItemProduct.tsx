@@ -5,7 +5,6 @@ import CustomSelect from "./CustomSelect";
 import { Checkbox } from "antd";
 import { useModal } from "../../../core/context/ModalContext";
 import { CartItem } from "../../../core/types/CartItem";
-import { deleteItemCart } from "../../../core/services/cart/deleteCart";
 
 type ItemProductProps = {
   product: CartItem;
@@ -18,7 +17,6 @@ type ItemProductProps = {
 
 export const ItemProduct: React.FC<ItemProductProps> = ({
   product,
-  refetch,
   setSelectedItemCart,
   selectedItemCart,
   setCheckSelectedItemStore,

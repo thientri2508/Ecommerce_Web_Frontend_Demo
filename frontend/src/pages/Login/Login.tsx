@@ -1,9 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import banner from "../../core/assets/banner/logo.png";
-import { useAuth } from "../../core/context/AuthContext";
 import LoginForm from "./LoginForm";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 
 const Login = () => {
 

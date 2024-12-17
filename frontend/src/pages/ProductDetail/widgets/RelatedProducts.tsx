@@ -30,7 +30,7 @@ const RelatedProducts = () => {
         Sản phẩm liên quan
       </div>
       <div className="flex flex-wrap gap-1 md:gap-4 mt-10 md:ml-[8px]">
-        {data?.list?.slice(0, 10).map((product: Product) =>
+        {Array.isArray(data) && data?.slice(0, 10).map((product: Product) =>
           product.id === Number(id_product) ? null : (
             <CardProduct key={product.id} product={product} />
           )

@@ -1,25 +1,16 @@
 import { FaPlus, FaStar } from "react-icons/fa6";
 import { PiLineVertical } from "react-icons/pi";
 import TagVoucher from "../../../core/components/TagVoucher/TagVoucher";
-// import productImg from "../../../core/assets/product/product4.png";
-// import { IoIosArrowForward } from "react-icons/io";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { useEffect, useState } from "react";
-// import productSizeImg from "../../../core/assets/product/product3-size.png";
-// import { IoCloseSharp } from "react-icons/io5";
 import { RiSubtractFill } from "react-icons/ri";
 import { Product } from "../../../core/types/Product";
 import { AttributeProduct } from "../../../core/types/AttributeProduct";
-import { useAuth } from "../../../core/context/AuthContext";
-import { useNavigate } from "react-router-dom";
 import { MdOutlineErrorOutline } from "react-icons/md";
-import { AddToCart } from "../../../core/services/cart/AddToCart";
 import { message } from "antd";
 
 const ProductInfo = ({ product }: { product: Product }) => {
   const [messageApi, contextHolder] = message.useMessage();
-  const { isAuthenticated, user } = useAuth();
-  const navigate = useNavigate();
 
   const [attributeProduct, setAttributeProduct] = useState<AttributeProduct>({
     id: product?.id,
@@ -153,9 +144,10 @@ const ProductInfo = ({ product }: { product: Product }) => {
           <ul className="flex gap-[10px]">
             <li className="font-medium">{product?.rating}.0</li>
             <li className="flex gap-[2px]">
-              {Array.from({ length: product?.rating }, (_, index) => (
-                <FaStar key={index} size={18} color="#FFD000" />
-              ))}
+              {product?.rating &&
+                Array.from({ length: product?.rating }, (_, index) => (
+                  <FaStar key={index} size={18} color="#FFD000" />
+                ))}
             </li>
             <li className="font-light text-text-muted">(231)</li>
           </ul>
@@ -177,23 +169,23 @@ const ProductInfo = ({ product }: { product: Product }) => {
       </ul>
 
       <div className="w-full mt-6 p-4 flex gap-5 items-center font-price border-solid border-[#f0f0f0] border-[1px] rounded-[16px]">
-        {product?.discount > 0 ? (
+        {product?.discount && product?.discount > 0 ? (
           <>
             <div className="text-priceColor font-bold text-[28px]">
               {(
-                attributeProduct.price *
+                (attributeProduct?.price || 0) *
                 (1 - product.discount / 100)
               ).toLocaleString("vi-VN")}{" "}
               đ
             </div>
             <TagVoucher text="%" />
             <div className="line-through text-[18px] text-priceColor-alt">
-              {attributeProduct.price.toLocaleString("vi-VN")} đ
+              {(attributeProduct?.price || 0).toLocaleString("vi-VN")} đ
             </div>
           </>
         ) : (
           <div className="text-priceColor font-bold text-[28px]">
-            {attributeProduct.price.toLocaleString("vi-VN")} đ
+            {(attributeProduct?.price || 0).toLocaleString("vi-VN")} đ
           </div>
         )}
       </div>
@@ -244,89 +236,6 @@ const ProductInfo = ({ product }: { product: Product }) => {
         </>
       )}
 
-      {/* <div className="text-[16px] mt-6">
-        Phân loại:{" "}
-        <span className="text-[14px] font-light text-text-muted">Đỏ đô</span>
-      </div>
-
-      <ul className="mt-3 flex gap-[10px] *:cursor-pointer">
-        {Array(10)
-          .fill(0)
-          .map((_, index) => (
-            <li key={index}>
-              <img
-                src={productImg}
-                className={`w-[60px] h-[60px] border-solid border-[#f0f0f0] border-[2px] rounded-[8px] hover:border-bg-alt1 transition-all duration-200 ${
-                  selectedColor === index
-                    ? "border-bg-alt1"
-                    : "border-[#f0f0f0]"
-                }`}
-                onClick={() => handleColorClick(index)}
-              />
-            </li>
-          ))}
-      </ul> */}
-
-      {/* <div className="flex justify-between">
-        <div className="text-[16px] mt-6">
-          Size:{" "}
-          <span className="text-[14px] font-light text-text-muted">
-            48-53kg
-          </span>
-        </div>
-        <div
-          className="text-[14px] font-light text-text-muted flex items-center mt-6 cursor-pointer"
-          onClick={() => setIsModalSizeOpen(true)}
-        >
-          <span>Bảng kích thước</span>
-          <IoIosArrowForward size={18} />
-        </div>
-      </div> */}
-
-      {/* <div className="text-[16px] mt-6">
-          Size:{" "}
-          <span className="text-[14px] font-light text-text-muted">
-            48-53kg
-          </span>
-        </div>
-
-      <ul className="mt-3 flex gap-[10px] *:cursor-pointer">
-        {sizes.map((size, index) => (
-          <li
-            key={index}
-            className={`border-2 rounded-[8px] hover:border-bg-alt1 px-[21px] py-[7px] transition-all duration-200 ${
-              selectedSize === size ? "border-bg-alt1" : "border-[#f0f0f0]"
-            }`}
-            onClick={() => handleSizeClick(size)}
-          >
-            {size}
-          </li>
-        ))}
-      </ul> */}
-
-      {/* {isModalSizeOpen && (
-        <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-          onClick={() => setIsModalSizeOpen(false)}
-        >
-          <div
-            className="relative bg-white p-4 rounded-lg shadow-lg max-w-lg w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setIsModalSizeOpen(false)}
-              className="absolute top-2 right-4 text-gray-600 hover:text-gray-800"
-            >
-              <IoCloseSharp size={40} />
-            </button>
-            <img
-              src={productSizeImg}
-              alt="Preview"
-              className="w-full h-auto rounded-[32px]"
-            />
-          </div>
-        </div>
-      )} */}
       <div className="flex gap-6 mt-8 items-center">
         <div className="flex justify-between items-center w-[240px] rounded-[32px] border-solid border-bg-alt1 border-[1px] px-4 py-2">
           <RiSubtractFill

@@ -73,7 +73,7 @@ const Store = () => {
             </div>
 
             <div className="bg-bg w-full rounded-[10px] mt-4 pt-4 pb-10">
-              <ProductList filterPrice={filterPrice} />
+              <ProductList />
             </div>
           </div>
         </div>

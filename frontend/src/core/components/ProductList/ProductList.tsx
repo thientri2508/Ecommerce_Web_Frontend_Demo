@@ -37,7 +37,7 @@ const ProductList: React.FC<ProductListProps> = ({ text, filter = {}, setLoading
     <div className="mt-8 w-full px-0 md:px-10 py-8">
       <div className="font-heading text-[18px] md:text-headingText text-headingColor uppercase px-7">{text}</div>
       <div className="flex flex-wrap gap-1 md:gap-4 mt-10 md:ml-[8px]">
-        {data?.map((product: Product) => <CardProduct key={product.id} product={product} />)}
+        {Array.isArray(data) && data?.map((product: Product) => <CardProduct key={product.id} product={product} />)}
       </div>
       <div className="center mt-10"><Button text="Xem thêm" icon={<FaArrowRight size={20} />} iconPosition="right" colorConfig="stroke" /></div>
     </div>

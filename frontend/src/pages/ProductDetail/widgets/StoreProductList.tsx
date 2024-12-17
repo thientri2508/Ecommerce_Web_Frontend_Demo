@@ -22,7 +22,7 @@ export const StoreProductList = () => {
   return (
     <div className="w-full text-center py-6 flex flex-col items-center gap-6">
       <div className="font-semibold text-[16px]">Sản phẩm của shop</div>
-      {products?.map((product: Product) => (
+      {Array.isArray(products) && products?.map((product: Product) => (
         <CardProduct
           key={product.id}
           product={product}

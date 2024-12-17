@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import { Category } from "../../types/Category";
 import { ROUTES } from "../../constants/constants.router";
+import { categoryData } from "../../mockData/categoryData";
 
 const ListCategory = ({
-  categoriesLv2,
-  categories,
-  pId,
+  categoriesLv2
 }: {
-  categoriesLv2: Category[],
-  categories: Category[],
-  pId: number
+  categoriesLv2: Category[]
 }) => {
+  console.log(categoriesLv2)
   return (
     <div className="flex flex-wrap gap-x-14 gap-y-8 mt-8 w-[65%] items-start">
       {categoriesLv2?.map((categoryLv2: Category) => {
@@ -22,7 +20,7 @@ const ListCategory = ({
               </p>
             </Link>
             <ul className="*:text-text-muted *:cursor-pointer *:transition-all *:duration-200 text-subCategory flex flex-col gap-3 mt-4">
-              {categories
+              {categoryData
                 ?.filter((category: Category) => categoryLv2.id == category.p_id)
                 ?.map((categoryLv3: Category) => {
                   return (

@@ -5,11 +5,10 @@ import { ImageProduct } from "../../../core/types/ImageProduct";
 import { ProductImageData } from "../../../core/mockData/productData";
 
 interface ProductImageProps {
-  images?: string;
   logo_product?: string;
 }
 
-const ProductImage: React.FC<ProductImageProps> = ({ images, logo_product }) => {
+const ProductImage: React.FC<ProductImageProps> = ({ logo_product }) => {
 
   //const image_list = images ? JSON.parse(images) : [];
   const image_list = ProductImageData
@@ -54,7 +53,7 @@ const ProductImage: React.FC<ProductImageProps> = ({ images, logo_product }) => 
                 transform: `translateY(-${startIndex * 68}px)`,
               }}
             >
-              {image_list.map((img: ImageProduct, idx: number) => (
+              {image_list?.map((img: ImageProduct, idx: number) => (
                 <div key={img?.id} className="flex justify-center items-center mb-2">
                   <img
                     src={img?.uri}
