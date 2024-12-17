@@ -62,22 +62,22 @@ const CardProduct: React.FC<CardProductProps> = ({
         <TagVoucher text="FREESHIP" color="#FFE93F" textColor="#000000" />
       </div>
       <div className="flex flex-wrap items-center justify-between font-price">
-        {product?.discount > 0 ? (
+        {product?.discount && product?.discount > 0 ? (
           <>
             <span className="text-priceColor font-bold text-[15px] sm-:text-priceText">
               {(
-                product?.listed_price *
+                (product?.listed_price || 0) *
                 (1 - product.discount / 100)
               ).toLocaleString("vi-VN")}{" "}
               đ
             </span>
             <span className="text-priceColor-alt text-priceText-alt line-through hidden sm-:block">
-              {product?.listed_price.toLocaleString("vi-VN")} đ
+              {product?.listed_price && product?.listed_price.toLocaleString("vi-VN")} đ
             </span>
           </>
         ) : (
           <span className="text-priceColor font-bold text-[15px] sm-:text-priceText">
-            {product?.listed_price.toLocaleString("vi-VN")} đ
+            {product?.listed_price && product?.listed_price.toLocaleString("vi-VN")} đ
           </span>
         )}
       </div>
