@@ -10,7 +10,7 @@ function App() {
   const isAuthenticated = true;
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Ecommerce_Web_Frontend_Demo/">
       <Layout>
         <ScrollToTop />
         <Routes>
