@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/Ecommerce_Web_Frontend_Demo/',
   optimizeDeps: {
       include: ['react-quill'],
   },
